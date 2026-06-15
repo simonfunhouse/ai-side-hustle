@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Download Is Ready — AI Side Hustle Fast-Start Bonus Pack</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold:#C9A84C;--gold-light:#E8C97A;--gold-pale:#FFF8E7;--gold-mid:#EDD87A;
+    --cream:#FDFAF4;--cream-2:#F7F2E8;--dark:#1A1410;--dark-mid:#3D3020;
+    --text:#2E2416;--text-soft:#6B5A3E;--white:#FFFFFF;--border:#E8DECA;
+    --green:#2D6A3F;--shadow:rgba(30,20,5,0.08);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;font-size:16px;}
+  .container{max-width:720px;margin:0 auto;padding:0 24px;}
+
+  .top-bar{background:var(--dark);color:var(--gold-light);text-align:center;padding:11px 20px;font-size:13px;font-weight:500;}
+
+  header{background:var(--white);border-bottom:1px solid var(--border);padding:44px 0 36px;text-align:center;}
+  .success-badge{display:inline-flex;align-items:center;gap:8px;background:#E8F4EA;border:1px solid #9ABA7A;color:var(--green);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 18px;border-radius:40px;margin-bottom:20px;}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,38px);font-weight:900;color:var(--dark);margin-bottom:10px;}
+  header .sub{font-size:15px;color:var(--text-soft);max-width:480px;margin:0 auto;}
+  .gold-bar{height:3px;background:var(--gold);width:56px;margin:18px auto 0;border-radius:2px;}
+
+  .product-band{background:var(--dark);padding:24px 0;text-align:center;}
+  .product-band .eyebrow{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;}
+  .product-band h2{font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,26px);font-weight:700;color:var(--white);}
+
+  main{padding:52px 0 80px;}
+
+  .start-here{background:var(--gold-pale);border:1px solid var(--gold-mid);border-radius:12px;padding:24px 28px;margin-bottom:40px;}
+  .start-here h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--dark);margin-bottom:14px;}
+  .start-list{list-style:none;}
+  .start-list li{padding:9px 0 9px 28px;position:relative;font-size:14.5px;color:var(--text);border-bottom:1px solid var(--gold-mid);}
+  .start-list li:last-child{border-bottom:none;}
+  .start-list li .num{position:absolute;left:0;width:20px;height:20px;background:var(--gold);color:var(--dark);border-radius:50%;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+
+  .download-area{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:32px 28px;margin-bottom:32px;text-align:center;box-shadow:0 4px 24px var(--shadow);}
+  .download-area h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--dark);margin-bottom:8px;}
+  .download-area .sub{font-size:14px;color:var(--text-soft);margin-bottom:24px;}
+  .btn-download{display:inline-block;background:var(--gold);color:var(--dark);font-family:'DM Sans',sans-serif;font-size:17px;font-weight:700;padding:18px 48px;border-radius:8px;text-decoration:none;box-shadow:0 4px 20px rgba(201,168,76,0.35);transition:background 0.2s,transform 0.15s;margin-bottom:16px;}
+  .btn-download:hover{background:var(--gold-light);transform:translateY(-2px);}
+  .fallback{font-size:13px;color:var(--text-soft);margin-top:4px;}
+  .fallback a{color:var(--gold);text-decoration:none;word-break:break-all;}
+  .fallback a:hover{text-decoration:underline;}
+
+  .link-placeholder{background:var(--cream-2);border:2px dashed var(--gold-mid);border-radius:8px;padding:16px 20px;margin-top:16px;font-size:13.5px;color:var(--text-soft);text-align:center;}
+  .link-placeholder strong{display:block;color:var(--dark-mid);margin-bottom:4px;}
+
+  .file-section{margin-bottom:32px;}
+  .file-section h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--dark);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--gold);}
+  .file-list{list-style:none;}
+  .file-list li{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);font-size:14.5px;color:var(--text);}
+  .file-list li:last-child{border-bottom:none;}
+  .file-num{width:26px;height:26px;background:var(--gold);color:var(--dark);border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .file-num.bonus{background:var(--dark);color:var(--gold);}
+  .file-name{font-weight:500;}
+  .file-note{font-size:12.5px;color:var(--text-soft);margin-top:2px;display:block;}
+
+  .order-section{background:var(--cream-2);border:1px solid var(--border);border-radius:10px;padding:22px 24px;margin-bottom:32px;}
+  .order-section h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--dark);margin-bottom:12px;}
+  .order-list{list-style:none;counter-reset:order;}
+  .order-list li{counter-increment:order;padding:7px 0 7px 32px;position:relative;font-size:14px;color:var(--text);border-bottom:1px solid var(--border);}
+  .order-list li:last-child{border-bottom:none;}
+  .order-list li::before{content:counter(order);position:absolute;left:0;width:22px;height:22px;background:var(--dark);color:var(--gold);border-radius:50%;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;text-align:center;line-height:22px;}
+
+  .usage{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:8px;padding:20px 24px;margin-bottom:32px;}
+  .usage h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--dark);margin-bottom:10px;}
+  .usage p{font-size:14px;color:var(--text-soft);line-height:1.7;margin-bottom:8px;}
+  .usage p:last-child{margin-bottom:0;}
+
+  .support{background:var(--cream-2);border:1px solid var(--border);border-radius:10px;padding:24px 28px;margin-bottom:32px;}
+  .support h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--dark);margin-bottom:10px;}
+  .support p{font-size:14px;color:var(--text-soft);line-height:1.7;margin-bottom:8px;}
+  .support-email{display:inline-block;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:10px 20px;font-size:14px;font-weight:600;color:var(--gold);text-decoration:none;margin:8px 0 12px;}
+  .support-list{list-style:none;margin-top:8px;}
+  .support-list li{font-size:13.5px;color:var(--text-soft);padding:5px 0 5px 18px;position:relative;}
+  .support-list li::before{content:'·';position:absolute;left:0;color:var(--gold);font-weight:700;}
+
+  .reminder{background:var(--dark);border-radius:12px;padding:28px 32px;margin-bottom:0;text-align:center;}
+  .reminder p{font-family:'DM Sans',sans-serif;font-size:15px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:8px;}
+  .reminder p:last-child{margin-bottom:0;}
+  .reminder strong{color:var(--gold);}
+  .reminder .done{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:var(--gold-light);margin-top:14px;display:block;}
+
+  footer{background:var(--dark);color:rgba(255,255,255,0.3);text-align:center;padding:20px;font-size:12px;border-top:1px solid rgba(255,255,255,0.05);}
+  footer a{color:var(--gold);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  AI Side Hustle Starter Kit Funnel &nbsp;·&nbsp; Secure Download Page &nbsp;·&nbsp; Personal Use Only
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="success-badge">✓ &nbsp; Access Confirmed</div>
+    <h1>Your Download Is Ready</h1>
+    <p class="sub">Thank you for subscribing. Your bonus pack files are ready below. Please download and save a backup copy to your computer or cloud storage.</p>
+    <div class="gold-bar"></div>
+  </div>
+</header>
+
+<!-- PRODUCT NAME BAND -->
+<div class="product-band">
+  <div class="container">
+    <span class="eyebrow">Your Free Bonus</span>
+    <h2>AI Side Hustle Fast-Start Bonus Pack</h2>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+
+    <!-- START HERE -->
+    <div class="start-here">
+      <h3>📋 Before You Download — Read This First</h3>
+      <ul class="start-list">
+        <li><span class="num">1</span>Click the download button below to access your bonus pack via Google Drive.</li>
+        <li><span class="num">2</span>Save the file somewhere safe — your desktop, a folder, or your own cloud storage.</li>
+        <li><span class="num">3</span>Start with the <strong>Quick-Start Checklist</strong> in Section 1 before anything else.</li>
+        <li><span class="num">4</span>Work through the six sections in order — don't skip ahead.</li>
+        <li><span class="num">5</span>Pick <strong>one idea only</strong> to focus on first. Do not try to use everything at once.</li>
+        <li><span class="num">6</span>Edit all prompts, templates, and examples for your own situation before using them.</li>
+        <li><span class="num">7</span>Review all AI-assisted content before publishing or sharing it.</li>
+      </ul>
+    </div>
+
+    <!-- DOWNLOAD BUTTON -->
+    <div class="download-area">
+      <h3>📥 Download Your Bonus Pack</h3>
+      <p class="sub">Click the button to open your Google Drive file for the <strong>AI Side Hustle Fast-Start Bonus Pack</strong>. File is in PDF format.</p>
+
+      <a href="https://drive.google.com/file/d/1A494X57R5pg3WbOyC7Ws4bI8l7JGkYgs/view?usp=sharing" class="btn-download" target="_blank">Download Your Bonus Pack →</a>
+
+      <p class="fallback">
+        If the button does not work, copy and paste this link into your browser:<br>
+        <a href="https://drive.google.com/file/d/1A494X57R5pg3WbOyC7Ws4bI8l7JGkYgs/view?usp=sharing" target="_blank">https://drive.google.com/file/d/1A494X57R5pg3WbOyC7Ws4bI8l7JGkYgs/view?usp=sharing</a>
+      </p>
+    </div>
+
+    <!-- WHAT IS INCLUDED -->
+    <div class="file-section">
+      <h3>What Is Included</h3>
+      <ul class="file-list">
+        <li>
+          <div class="file-num">1</div>
+          <div><span class="file-name">Section 1 — AI Side Hustle Quick-Start Checklist</span><span class="file-note">Start here — tick each item before you begin</span></div>
+        </li>
+        <li>
+          <div class="file-num">2</div>
+          <div><span class="file-name">Section 2 — 10 Extra AI Side Hustle Ideas</span><span class="file-note">Ten additional starting-point ideas with audience and offer suggestions</span></div>
+        </li>
+        <li>
+          <div class="file-num">3</div>
+          <div><span class="file-name">Section 3 — Pick One Idea Fast (Scoring System)</span><span class="file-note">A simple scoring table to help you choose one idea quickly</span></div>
+        </li>
+        <li>
+          <div class="file-num">4</div>
+          <div><span class="file-name">Section 4 — Product Name Generator Prompt Sheet</span><span class="file-note">Six AI prompts to help you name your first product, checklist, or guide</span></div>
+        </li>
+        <li>
+          <div class="file-num">5</div>
+          <div><span class="file-name">Section 5 — 10 Extra Promo Prompts</span><span class="file-note">Ten fill-in AI prompts for social posts, emails, video scripts, and more</span></div>
+        </li>
+        <li>
+          <div class="file-num">6</div>
+          <div><span class="file-name">Section 6 — First 24-Hours Action Plan</span><span class="file-note">A step-by-step hourly plan to help you take action today</span></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- RECOMMENDED ORDER -->
+    <div class="order-section">
+      <h3>Suggested Reading Order</h3>
+      <ol class="order-list">
+        <li>Quick-Start Checklist — tick each item before you start</li>
+        <li>10 Extra AI Side Hustle Ideas — review and shortlist your favourites</li>
+        <li>Pick One Idea Fast — use the scoring table to choose one</li>
+        <li>Product Name Generator Prompts — use if you need title ideas</li>
+        <li>10 Extra Promo Prompts — use to create your first content draft</li>
+        <li>First 24-Hours Action Plan — follow step by step to take action today</li>
+      </ol>
+    </div>
+
+    <!-- USAGE NOTES -->
+    <div class="usage">
+      <h3>Important Usage Notes</h3>
+      <p>This bonus pack is provided for educational and informational purposes only. No income, sales, traffic, leads, followers, commissions, downloads, customers, or business results are guaranteed.</p>
+      <p>Your results will depend on your effort, consistency, niche, audience, product quality, platform rules, market demand, skills, timing, and the actions you take.</p>
+      <p>All prompts, templates, and examples in this pack must be reviewed, edited, and personalised before use. You are responsible for anything you create, publish, sell, send, or promote using these materials.</p>
+      <p>This is a digital product for <strong>personal use only</strong>. Do not share, redistribute, resell, or give away the files.</p>
+    </div>
+
+    <!-- SUPPORT -->
+    <div class="support">
+      <h3>Need Help?</h3>
+      <p>If you have any problems accessing your files or have a question about the bonus pack, please get in touch.</p>
+      <a href="mailto:simonfoxhouse@gmail.com?subject=Download%20Support%20—%20AI%20Side%20Hustle%20Fast-Start%20Bonus%20Pack" class="support-email">✉ simonfoxhouse@gmail.com</a>
+      <p>When contacting support, please include:</p>
+      <ul class="support-list">
+        <li>Your name</li>
+        <li>Your email address</li>
+        <li>A short description of the issue</li>
+      </ul>
+      <p style="margin-top:12px;font-size:13.5px;">We aim to respond within <strong>2 business days</strong>.</p>
+    </div>
+
+    <!-- FINAL REMINDER -->
+    <div class="reminder">
+      <p>Please download your bonus pack and keep a backup copy in a safe place.</p>
+      <p>Start with the <strong>Quick-Start Checklist</strong>. Pick one idea. Take one step. Keep moving.</p>
+      <p>Do not overthink it. Start simple. Review carefully. Promote honestly. Improve as you go.</p>
+      <span class="done">Done beats perfect.</span>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 AI Side Hustle Fast-Start Bonus Pack &nbsp;·&nbsp; All Rights Reserved &nbsp;·&nbsp; Personal Use Only &nbsp;·&nbsp;
+  <a href="privacy_policy.html">Privacy Policy</a> &nbsp;·&nbsp;
+  <a href="terms_of_use.html">Terms of Use</a> &nbsp;·&nbsp;
+  <a href="support.html">Support</a></p>
+</footer>
+
+</body>
+</html>

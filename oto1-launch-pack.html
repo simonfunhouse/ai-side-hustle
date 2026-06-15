@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTO 1 — Done-For-You AI Side Hustle Launch Pack</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold:#C9A84C;--gold-light:#E8C97A;--gold-pale:#FFF8E7;--gold-mid:#EDD87A;
+    --cream:#FDFAF4;--cream-2:#F7F2E8;--dark:#1A1410;--dark-mid:#3D3020;
+    --text:#2E2416;--text-soft:#6B5A3E;--white:#FFFFFF;--border:#E8DECA;
+    --green:#2D6A3F;--red-soft:#8B3A2A;--shadow:rgba(30,20,5,0.08);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;font-size:16px;}
+  .container{max-width:820px;margin:0 auto;padding:0 24px;}
+  .container--wide{max-width:1000px;margin:0 auto;padding:0 24px;}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;}
+  .gold-rule{width:56px;height:3px;background:var(--gold);border-radius:2px;margin:0 auto 20px;}
+
+  /* TOP BAR */
+  .top-bar{background:var(--green);color:#FFFFFF;text-align:center;padding:13px 20px;font-size:18px;font-weight:600;letter-spacing:0.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .top-bar span{background:rgba(255,255,255,0.18);border-radius:4px;padding:2px 10px;margin-right:8px;font-size:12px;letter-spacing:1px;text-transform:uppercase;}
+
+  /* CONGRATS BAND */
+  .congrats{background:var(--gold-pale);border-bottom:2px solid var(--gold-mid);padding:28px 0;text-align:center;}
+  .congrats p{font-size:15px;color:var(--dark-mid);max-width:620px;margin:0 auto;line-height:1.65;}
+  .congrats strong{color:var(--dark);}
+
+  /* HERO */
+  .hero{background:var(--white);border-bottom:1px solid var(--border);padding:64px 0 56px;text-align:center;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 70%);pointer-events:none;}
+  .hero-badge{display:inline-block;background:var(--gold-pale);border:1px solid var(--gold-mid);color:var(--dark-mid);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:6px 20px;border-radius:40px;margin-bottom:24px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(30px,5vw,52px);font-weight:900;line-height:1.12;color:var(--dark);max-width:720px;margin:0 auto 18px;}
+  .hero h1 em{font-style:italic;color:var(--gold);}
+  .hero-sub{font-size:17px;color:var(--text-soft);max-width:580px;margin:0 auto 28px;line-height:1.65;}
+  .hero-question{font-family:'DM Serif Display',serif;font-style:italic;font-size:22px;color:var(--dark);margin-bottom:24px;}
+  .hero-answer{background:var(--gold-pale);border:1px solid var(--gold-mid);border-radius:12px;padding:18px 28px;display:inline-block;max-width:600px;font-size:15px;color:var(--dark-mid);font-weight:500;line-height:1.55;margin-bottom:32px;}
+
+  /* BUTTONS */
+  .btn-cta{display:inline-block;background:var(--gold);color:var(--dark);font-family:'DM Sans',sans-serif;font-size:17px;font-weight:700;padding:18px 48px;border-radius:8px;text-decoration:none;cursor:pointer;border:none;box-shadow:0 4px 24px rgba(201,168,76,0.35);transition:background 0.2s,transform 0.15s;}
+  .btn-cta:hover{background:var(--gold-light);transform:translateY(-2px);}
+  .btn-cta--large{font-size:19px;padding:20px 56px;}
+  .btn-skip{display:block;font-size:14px;color:var(--text-soft);margin-top:14px;text-decoration:underline;cursor:pointer;}
+  .btn-skip:hover{color:var(--dark);}
+  .cta-note{font-size:12px;color:var(--text-soft);margin-top:10px;}
+
+  /* WHY SECTION */
+  .why{padding:72px 0;background:var(--cream);}
+  .why h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,36px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:10px;}
+  .why-intro{text-align:center;color:var(--text-soft);font-size:15px;max-width:540px;margin:0 auto 36px;line-height:1.65;}
+  .stuck-list{list-style:none;max-width:560px;margin:0 auto 32px;}
+  .stuck-list li{padding:11px 0 11px 30px;position:relative;font-size:15px;color:var(--text);border-bottom:1px solid var(--border);}
+  .stuck-list li::before{content:'?';position:absolute;left:0;color:var(--gold);font-weight:700;font-size:15px;}
+  .bridge{text-align:center;font-family:'DM Serif Display',serif;font-style:italic;font-size:20px;color:var(--dark-mid);max-width:560px;margin:0 auto;line-height:1.5;}
+  .bridge strong{color:var(--gold);font-style:normal;}
+
+  /* WHAT IT HELPS */
+  .helps{padding:72px 0;background:var(--cream-2);border-top:1px solid var(--border);}
+  .helps h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,34px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:36px;}
+  .helps-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:720px;margin:0 auto;}
+  @media(max-width:560px){.helps-grid{grid-template-columns:1fr;}}
+  .helps-item{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 18px;display:flex;align-items:center;gap:12px;font-size:14px;font-weight:500;color:var(--text);}
+  .hck{width:22px;height:22px;background:var(--gold-pale);border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:var(--gold);font-weight:800;}
+
+  /* FILES */
+  .files{padding:80px 0;background:var(--white);border-top:1px solid var(--border);}
+  .files h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:10px;}
+  .files-intro{text-align:center;color:var(--text-soft);font-size:15px;max-width:520px;margin:0 auto 48px;}
+  .file-cards{display:grid;gap:14px;}
+  .file-card{background:var(--cream);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .file-hdr{background:var(--dark);padding:14px 20px;display:flex;align-items:center;gap:14px;}
+  .file-num{width:32px;height:32px;background:var(--gold);color:var(--dark);border-radius:50%;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .file-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--white);}
+  .file-body{padding:16px 20px;}
+  .file-body p{font-size:14px;color:var(--text-soft);line-height:1.65;margin-bottom:10px;}
+  .file-body p:last-child{margin-bottom:0;}
+  .file-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+  .file-tag{background:var(--gold-pale);border:1px solid var(--gold-mid);color:var(--dark-mid);font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;}
+
+  /* FLOW */
+  .flow{padding:72px 0;background:var(--cream);border-top:1px solid var(--border);}
+  .flow h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,34px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:36px;}
+  .flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .flow-step{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px 18px;text-align:center;position:relative;}
+  .flow-step::after{content:'→';position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:20px;font-weight:700;}
+  .flow-step:last-child::after{display:none;}
+  .flow-n{width:40px;height:40px;background:var(--gold);color:var(--dark);border-radius:50%;font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-family:'Playfair Display',serif;}
+  .flow-t{font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:5px;}
+  .flow-d{font-size:12.5px;color:var(--text-soft);line-height:1.45;}
+
+  /* FOR / NOT FOR */
+  .fornotfor{padding:64px 0;background:var(--cream-2);border-top:1px solid var(--border);}
+  .fornotfor h2{font-family:'Playfair Display',serif;font-size:clamp(22px,2.5vw,30px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:36px;}
+  .fnf-wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:720px;margin:0 auto;}
+  @media(max-width:560px){.fnf-wrap{grid-template-columns:1fr;}}
+  .fnfc h3{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid;}
+  .fnfc.yes h3{color:var(--green);border-color:var(--green);}
+  .fnfc.no h3{color:var(--red-soft);border-color:var(--red-soft);}
+  .fnfc ul{list-style:none;}
+  .fnfc li{font-size:14px;padding:7px 0 7px 24px;position:relative;border-bottom:1px solid var(--border);color:var(--text);}
+  .fnfc.yes li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;}
+  .fnfc.no  li::before{content:'✗';position:absolute;left:0;color:var(--red-soft);font-weight:700;}
+
+  /* EXPECT */
+  .expect{padding:56px 0;background:var(--white);border-top:1px solid var(--border);}
+  .expect-box{background:var(--cream-2);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:10px;padding:28px 32px;max-width:700px;margin:0 auto;}
+  .expect-box h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--dark);margin-bottom:12px;}
+  .expect-box p{font-size:15px;color:var(--text);line-height:1.75;margin-bottom:10px;}
+  .expect-box p:last-child{margin-bottom:0;}
+
+  /* STATS */
+  .stats{background:var(--dark);padding:48px 0;}
+  .stats-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;text-align:center;}
+  .stat{border:1px solid rgba(201,168,76,0.2);border-radius:10px;padding:18px 12px;}
+  .sn{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:4px;}
+  .sl{font-size:12px;color:rgba(255,255,255,0.65);font-weight:500;}
+
+  /* OPTIONAL SKIP */
+  .optional{padding:40px 0;background:var(--cream);border-top:1px solid var(--border);text-align:center;}
+  .optional p{font-size:14px;color:var(--text-soft);max-width:560px;margin:0 auto;}
+
+  /* FINAL CTA */
+  .fcta{padding:72px 0;background:var(--gold-pale);border-top:1px solid var(--gold-mid);text-align:center;}
+  .fcta h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--dark);line-height:1.2;margin-bottom:14px;}
+  .fcta .sub{color:var(--text-soft);font-size:16px;max-width:480px;margin:0 auto 32px;line-height:1.6;}
+  .price-box{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:28px 40px;display:inline-block;margin-bottom:28px;box-shadow:0 8px 40px var(--shadow);}
+  .pl{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-soft);margin-bottom:4px;}
+  .pv{font-family:'Playfair Display',serif;font-size:54px;font-weight:900;color:var(--dark);line-height:1;}
+  .ps{font-size:13px;color:var(--text-soft);margin-top:6px;}
+  .pay-ph{background:var(--white);border:2px dashed var(--gold-mid);border-radius:10px;padding:20px 32px;font-size:14px;color:var(--text-soft);margin:0 auto 24px;max-width:420px;}
+  .pay-ph strong{display:block;color:var(--dark-mid);margin-bottom:4px;font-size:15px;}
+  .sec{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--text-soft);margin-top:14px;}
+  .sec span{color:var(--green);font-weight:600;}
+
+  /* DISCLAIMERS */
+  .disc-s{background:var(--cream-2);border-top:1px solid var(--border);padding:48px 0 36px;}
+  .disc-s h3{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);text-align:center;margin-bottom:22px;}
+  .db{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin-bottom:10px;font-size:12.5px;color:var(--text-soft);line-height:1.7;}
+  .db strong{color:var(--text);}
+
+  footer{background:var(--dark);color:rgba(255,255,255,0.35);text-align:center;padding:22px;font-size:12px;}
+  footer a{color:var(--gold);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+  .hero>div>*{animation:fadeUp 0.55s ease both;}
+  .hero .hero-badge{animation-delay:0.1s;}
+  .hero h1{animation-delay:0.2s;}
+  .hero-sub{animation-delay:0.3s;}
+  .hero-question{animation-delay:0.35s;}
+  .hero-answer{animation-delay:0.4s;}
+  .hero .cta-wrap{animation-delay:0.5s;}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity 0.55s ease,transform 0.55s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+  @media(max-width:560px){.flow-step::after{display:none;}.flow-steps{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<img src="https://warriorplus.com/o2/btn/pn100011001/r13zmh/zxhpfb/466538" height="1" width="1" style="visibility:hidden;">
+
+<!-- TOP BAR -->
+<div class="top-bar">⚡ DFY Side Hustle Launch Pack ⚡</div>
+
+<!-- CONGRATS BAND -->
+<div class="congrats reveal">
+  <div class="container">
+    <p>🎉 <strong>Congratulations on your AI Side Hustle Starter Kit purchase.</strong> Your files are on their way. Before you go, take a look at this optional post-purchase upgrade. It is designed to help you create simple launch materials for the idea you just started planning. 🎉</p>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-badge">One-Time Upgrade &nbsp;·&nbsp; Special Post-Purchase Offer &nbsp;·&nbsp; Optional Add-On</span>
+    <h1>Upgrade Your Starter Kit With<br><em>Copy-And-Paste Launch Materials</em></h1>
+    <p class="hero-sub" style="margin-top:25px;">You now have the tools to choose your AI side hustle idea and plan your first steps. The next question is usually the hardest one:</p>
+    <p class="hero-question">"What do I actually say when I want to promote it?"</p>
+    <div class="hero-answer">
+      📋 <strong>The Done-For-You AI Side Hustle Launch Pack</strong> gives you beginner-friendly sales page templates, social media posts, email swipe examples, and a simple 7-day launch calendar — so you are not starting from a blank page. 📋
+    </div>
+    <div class="cta-wrap">
+      <!-- ★ EDIT: Replace href below with your real WarriorPlus OTO1 buy link, e.g. https://warriorplus.com/o2/buy/r13zmh/XXXXXX/XXXXXX -->
+      <a href="https://warriorplus.com/o2/buy/r13zmh/zxhpfb/rdvppn" class="btn-cta btn-cta--large"><em>✦ Yes — Add The Launch Pack To My Order ✦</em></a>
+      <p class="cta-note" style="margin-top:20px;">Instant digital access &nbsp;·&nbsp; Personal use license &nbsp;·&nbsp; Delivered via WarriorPlus</p>
+      <!-- ★ EDIT: Replace href below with your real WarriorPlus no-thanks link, e.g. https://warriorplus.com/o/nothanks/XXXXXX -->
+      <a href="https://warriorplus.com/o/nothanks/zxhpfb" class="btn-skip">No thanks, I will continue without the launch pack.</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THIS MAKES SENSE -->
+<section class="why reveal">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">The Problem Most Beginners Hit Next</span>
+    <div class="gold-rule"></div>
+    <h2>Choosing your idea is only the first step</h2>
+    <p class="why-intro">Once you know what you want to offer, you still need simple materials to explain it. Most beginners get stuck asking themselves:</p>
+    <ul class="stuck-list">
+      <li>What should I write on the sales page?</li>
+      <li>What should I post on social media?</li>
+      <li>What should I say in an email?</li>
+      <li>How do I describe my product clearly?</li>
+      <li>How do I launch without making it complicated?</li>
+      <li>What should I do first, second, and third?</li>
+    </ul>
+    <p class="bridge">The Launch Pack gives you a <strong>simple starting point</strong> for all of those — templates and structure you can edit and use immediately.</p>
+  </div>
+</section>
+
+<!-- WHAT IT HELPS YOU DO -->
+<section class="helps reveal">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">What This Upgrade Helps You Do</span>
+    <div class="gold-rule"></div>
+    <h2>Move from idea to launch materials faster</h2>
+    <div class="helps-grid">
+      <div class="helps-item"><div class="hck">✓</div>Write a basic sales page outline</div>
+      <div class="helps-item"><div class="hck">✓</div>Create simple product listing copy</div>
+      <div class="helps-item"><div class="hck">✓</div>Prepare beginner-friendly social media posts</div>
+      <div class="helps-item"><div class="hck">✓</div>Write short email swipe messages</div>
+      <div class="helps-item"><div class="hck">✓</div>Plan a simple 7-day launch</div>
+      <div class="helps-item"><div class="hck">✓</div>Explain your offer more clearly</div>
+      <div class="helps-item"><div class="hck">✓</div>Avoid staring at a blank page</div>
+      <div class="helps-item"><div class="hck">✓</div>Keep your launch simple and organized</div>
+      <div class="helps-item"><div class="hck">✓</div>Promote without making unrealistic claims</div>
+      <div class="helps-item"><div class="hck">✓</div>Take the next step after choosing your idea</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="files reveal">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">What You Get Inside</span>
+    <div class="gold-rule"></div>
+    <h2>6 Files To Help You Prepare Your First Launch</h2>
+    <p class="files-intro">Each file is a practical, beginner-friendly PDF you can open and start using the same day.</p>
+    <div class="file-cards">
+
+      <div class="file-card">
+        <div class="file-hdr">
+          <div class="file-num">1</div>
+          <div class="file-title">Read Me First</div>
+        </div>
+        <div class="file-body">
+          <p>A simple starting guide that explains what the launch pack is, how to use it, and what order to open the files. Helps you avoid overwhelm by showing you exactly where to begin — you do not need to use everything at once.</p>
+        </div>
+      </div>
+
+      <div class="file-card">
+        <div class="file-hdr">
+          <div class="file-num">2</div>
+          <div class="file-title">Launch Pack Guide</div>
+        </div>
+        <div class="file-body">
+          <p>The main guide for understanding how to use the templates responsibly. Covers what launch materials are, how to edit them for your own offer, how to keep your message clear, and how to avoid unrealistic promises.</p>
+        </div>
+      </div>
+
+      <div class="file-card">
+        <div class="file-hdr">
+          <div class="file-num">3</div>
+          <div class="file-title">Sales Page & Product Listing Templates</div>
+        </div>
+        <div class="file-body">
+          <p>Ready-to-edit structures for your sales page and product listings. Includes templates for headlines, offer descriptions, who-this-is-for sections, benefit sections, call-to-action copy, and disclaimer-style wording.</p>
+          <div class="file-tags">
+            <span class="file-tag">Headlines</span>
+            <span class="file-tag">Offer descriptions</span>
+            <span class="file-tag">Benefit sections</span>
+            <span class="file-tag">CTA copy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="file-card">
+        <div class="file-hdr">
+          <div class="file-num">4</div>
+          <div class="file-title">Social Media Promo Pack</div>
+        </div>
+        <div class="file-body">
+          <p>Beginner-friendly social media post templates for Facebook, Instagram, LinkedIn, Threads, X, and community posts where allowed. Includes helpful posts, problem/solution posts, soft offer posts, direct CTA posts, and reminder posts.</p>
+          <div class="file-tags">
+            <span class="file-tag">Helpful posts</span>
+            <span class="file-tag">Soft offer posts</span>
+            <span class="file-tag">CTA posts</span>
+            <span class="file-tag">Reminder posts</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="file-card">
+        <div class="file-hdr">
+          <div class="file-num">5</div>
+          <div class="file-title">Email Swipe Pack</div>
+        </div>
+        <div class="file-body">
+          <p>Simple email examples you can edit for your own audience — including welcome-style messages, helpful tip emails, product introduction emails, soft promotion emails, reminder emails, and FAQ-style emails.</p>
+          <div class="file-tags">
+            <span class="file-tag">Welcome emails</span>
+            <span class="file-tag">Tip emails</span>
+            <span class="file-tag">Promo emails</span>
+            <span class="file-tag">FAQ emails</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="file-card">
+        <div class="file-hdr">
+          <div class="file-num">6</div>
+          <div class="file-title">7-Day Launch Calendar</div>
+        </div>
+        <div class="file-body">
+          <p>A simple one-week launch plan that tells you what to focus on each day — from introducing your offer to sending reminders and reviewing what worked. Keeps your first launch simple and organized without requiring a complicated funnel.</p>
+          <div class="file-tags">
+            <span class="file-tag">Daily action plan</span>
+            <span class="file-tag">Post schedule</span>
+            <span class="file-tag">Review guide</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats reveal">
+  <div class="container">
+    <div class="stats-g">
+      <div class="stat"><div class="sn">6</div><div class="sl">Files Included</div></div>
+      <div class="stat"><div class="sn">30+</div><div class="sl">Social Post Templates</div></div>
+      <div class="stat"><div class="sn">7</div><div class="sl">Day Launch Calendar</div></div>
+      <div class="stat"><div class="sn">6+</div><div class="sl">Email Swipe Templates</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOOK INSIDE -->
+<section class="look reveal" style="padding:72px 0;background:var(--cream-2);border-top:1px solid var(--border);">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">A Look Inside The Launch Pack</span>
+    <div class="gold-rule"></div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,34px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:10px;">Clean templates — ready to open and edit</h2>
+    <p style="text-align:center;color:var(--text-soft);font-size:15px;margin-bottom:36px;">Every file is a professionally designed PDF with clear headings, editable structures, and practical instructions throughout.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;">
+
+      <!-- Sales Page Templates -->
+      <div style="flex:0 0 200px;background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 4px 20px var(--shadow);">
+        <svg width="100%" viewBox="0 0 200 140" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>Sales Page Templates preview</title>
+          <rect width="200" height="140" fill="#FFF8E7"/>
+          <rect width="200" height="7" fill="#C9A84C"/>
+          <text x="100" y="20" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-weight="700" fill="#1A1410">SALES PAGE TEMPLATES</text>
+          <rect x="16" y="25" width="168" height="1" fill="#E8DECA"/>
+          <text x="16" y="38" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#C9A84C">HEADLINE TEMPLATE:</text>
+          <rect x="16" y="41" width="168" height="11" rx="3" fill="#1A1410" opacity="0.07"/>
+          <text x="22" y="50" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">[Your product] helps [audience] [benefit] without [pain]</text>
+          <text x="16" y="63" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#C9A84C">WHO THIS IS FOR:</text>
+          <rect x="16" y="66" width="168" height="9" rx="2" fill="#E8F4EA"/>
+          <text x="22" y="73.5" font-family="Arial,sans-serif" font-size="6" fill="#2D6A3F" font-weight="700">✓ You are [audience type]</text>
+          <rect x="16" y="78" width="168" height="9" rx="2" fill="#E8F4EA"/>
+          <text x="22" y="85.5" font-family="Arial,sans-serif" font-size="6" fill="#2D6A3F" font-weight="700">✓ You want to [goal]</text>
+          <text x="16" y="100" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#C9A84C">CALL TO ACTION:</text>
+          <rect x="16" y="103" width="100" height="12" rx="4" fill="#C9A84C"/>
+          <text x="66" y="112" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" font-weight="700" fill="#1A1410">Yes — Get Access →</text>
+          <rect x="16" y="120" width="168" height="5" rx="2" fill="#E8DECA"/>
+          <rect width="200" height="5" y="135" fill="#C9A84C"/>
+        </svg>
+        <div style="padding:12px 14px;font-size:12.5px;font-weight:500;color:var(--text);border-top:1px solid var(--border);">Sales Page Templates<div style="font-size:11.5px;color:var(--text-soft);margin-top:2px;">Headlines, descriptions & CTA copy</div></div>
+      </div>
+
+      <!-- Social Media Promo Pack -->
+      <div style="flex:0 0 200px;background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 4px 20px var(--shadow);">
+        <svg width="100%" viewBox="0 0 200 140" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>Social Media Promo Pack preview</title>
+          <rect width="200" height="140" fill="#FFF8E7"/>
+          <rect width="200" height="7" fill="#C9A84C"/>
+          <text x="100" y="20" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-weight="700" fill="#1A1410">SOCIAL MEDIA PROMO PACK</text>
+          <rect x="16" y="25" width="168" height="1" fill="#E8DECA"/>
+          <!-- Post type badges -->
+          <rect x="16" y="30" width="50" height="11" rx="4" fill="#1A1A30"/>
+          <text x="41" y="38.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" font-weight="700" fill="#C9A84C">Helpful</text>
+          <rect x="70" y="30" width="46" height="11" rx="4" fill="#1A5A8A"/>
+          <text x="93" y="38.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" font-weight="700" fill="#FFFFFF">Trust</text>
+          <rect x="120" y="30" width="40" height="11" rx="4" fill="#8A3A1A"/>
+          <text x="140" y="38.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" font-weight="700" fill="#FFFFFF">Offer</text>
+          <!-- Sample post -->
+          <rect x="16" y="47" width="168" height="50" rx="4" fill="#F7F9FF" stroke="#E8DECA" stroke-width="0.75"/>
+          <text x="22" y="60" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#1A1410">Template 1 — Introduction Post</text>
+          <rect x="22" y="63" width="140" height="0.8" fill="#E8DECA"/>
+          <text x="22" y="73" font-family="Georgia,serif" font-size="6" font-style="italic" fill="#3D3020">I created [Product Name] for [audience] who</text>
+          <text x="22" y="81" font-family="Georgia,serif" font-size="6" font-style="italic" fill="#3D3020">want to [goal] without feeling overwhelmed.</text>
+          <text x="22" y="89" font-family="Georgia,serif" font-size="6" font-style="italic" fill="#3D3020">Check it out here: [Add link]</text>
+          <text x="100" y="110" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="#9B8A6A">30+ post templates inside</text>
+          <rect x="16" y="116" width="168" height="7" rx="3" fill="#E8DECA" opacity="0.6"/>
+          <rect width="200" height="5" y="135" fill="#C9A84C"/>
+        </svg>
+        <div style="padding:12px 14px;font-size:12.5px;font-weight:500;color:var(--text);border-top:1px solid var(--border);">Social Media Promo Pack<div style="font-size:11.5px;color:var(--text-soft);margin-top:2px;">30+ editable posts across 5 types</div></div>
+      </div>
+
+      <!-- Email Swipe Pack -->
+      <div style="flex:0 0 200px;background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 4px 20px var(--shadow);">
+        <svg width="100%" viewBox="0 0 200 140" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>Email Swipe Pack preview</title>
+          <rect width="200" height="140" fill="#FFF8E7"/>
+          <rect width="200" height="7" fill="#C9A84C"/>
+          <text x="100" y="20" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-weight="700" fill="#1A1410">EMAIL SWIPE PACK</text>
+          <rect x="16" y="25" width="168" height="1" fill="#E8DECA"/>
+          <!-- Email card 1 -->
+          <rect x="16" y="30" width="168" height="30" rx="4" fill="#E8EDF8" stroke="#B0B8D4" stroke-width="0.75"/>
+          <rect x="16" y="30" width="168" height="3" rx="2" fill="#3A3AFF" opacity="0.5"/>
+          <text x="22" y="41" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#1A2A5A">Email 1 — Welcome & Delivery</text>
+          <text x="22" y="50" font-family="Arial,sans-serif" font-size="6" fill="#1A2A5A">Subject: Your [Product Name] is ready</text>
+          <text x="22" y="57" font-family="Georgia,serif" font-size="5.5" font-style="italic" fill="#3D3020">Hi, thanks for purchasing. Download here: [link]</text>
+          <!-- Email card 2 -->
+          <rect x="16" y="65" width="168" height="28" rx="4" fill="#E8EDF8" stroke="#B0B8D4" stroke-width="0.75"/>
+          <rect x="16" y="65" width="168" height="3" rx="2" fill="#3A3AFF" opacity="0.5"/>
+          <text x="22" y="76" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#1A2A5A">Email 2 — Helpful Tip</text>
+          <text x="22" y="85" font-family="Arial,sans-serif" font-size="6" fill="#1A2A5A">Subject: A simple tip for [topic]</text>
+          <text x="22" y="91" font-family="Georgia,serif" font-size="5.5" font-style="italic" fill="#3D3020">Hi, here is a quick tip to help you get started...</text>
+          <!-- Email card 3 partial -->
+          <rect x="16" y="98" width="168" height="22" rx="4" fill="#E8EDF8" stroke="#B0B8D4" stroke-width="0.75"/>
+          <rect x="16" y="98" width="168" height="3" rx="2" fill="#3A3AFF" opacity="0.5"/>
+          <text x="22" y="109" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#1A2A5A">Email 3 — Soft Promotion</text>
+          <text x="22" y="117" font-family="Arial,sans-serif" font-size="6" fill="#1A2A5A">Subject: Want the next step?</text>
+          <text x="100" y="131" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="#9B8A6A">6+ email templates inside</text>
+          <rect width="200" height="5" y="135" fill="#C9A84C"/>
+        </svg>
+        <div style="padding:12px 14px;font-size:12.5px;font-weight:500;color:var(--text);border-top:1px solid var(--border);">Email Swipe Pack<div style="font-size:11.5px;color:var(--text-soft);margin-top:2px;">Welcome, tip, promo & FAQ emails</div></div>
+      </div>
+
+      <!-- 7-Day Launch Calendar -->
+      <div style="flex:0 0 200px;background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 4px 20px var(--shadow);">
+        <svg width="100%" viewBox="0 0 200 140" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>7-Day Launch Calendar preview</title>
+          <rect width="200" height="140" fill="#FFF8E7"/>
+          <rect width="200" height="7" fill="#C9A84C"/>
+          <text x="100" y="20" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-weight="700" fill="#1A1410">7-DAY LAUNCH CALENDAR</text>
+          <rect x="16" y="25" width="168" height="1" fill="#E8DECA"/>
+          <!-- Day rows -->
+          <rect x="16" y="30" width="168" height="12" rx="2" fill="#1A1410" opacity="0.06"/>
+          <rect x="16" y="30" width="28" height="12" rx="2" fill="#C9A84C" opacity="0.9"/>
+          <text x="30" y="39" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#1A1410">Day 1</text>
+          <text x="52" y="39" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">Introduce your offer — trust post</text>
+          <rect x="16" y="45" width="168" height="12" rx="2" fill="#C9A84C" opacity="0.12"/>
+          <rect x="16" y="45" width="28" height="12" rx="2" fill="#C9A84C" opacity="0.7"/>
+          <text x="30" y="54" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#1A1410">Day 2</text>
+          <text x="52" y="54" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">Problem/solution post + email</text>
+          <rect x="16" y="60" width="168" height="12" rx="2" fill="#1A1410" opacity="0.06"/>
+          <rect x="16" y="60" width="28" height="12" rx="2" fill="#C9A84C" opacity="0.9"/>
+          <text x="30" y="69" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#1A1410">Day 3</text>
+          <text x="52" y="69" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">Helpful tip — value post</text>
+          <rect x="16" y="75" width="168" height="12" rx="2" fill="#C9A84C" opacity="0.12"/>
+          <rect x="16" y="75" width="28" height="12" rx="2" fill="#C9A84C" opacity="0.7"/>
+          <text x="30" y="84" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#1A1410">Day 4</text>
+          <text x="52" y="84" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">FAQ / objection post</text>
+          <rect x="16" y="90" width="168" height="12" rx="2" fill="#1A1410" opacity="0.06"/>
+          <rect x="16" y="90" width="28" height="12" rx="2" fill="#C9A84C" opacity="0.9"/>
+          <text x="30" y="99" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#1A1410">Day 5</text>
+          <text x="52" y="99" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">Soft offer post + reminder email</text>
+          <rect x="16" y="105" width="168" height="12" rx="2" fill="#C9A84C" opacity="0.12"/>
+          <rect x="16" y="105" width="28" height="12" rx="2" fill="#C9A84C" opacity="0.7"/>
+          <text x="30" y="114" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#1A1410">Day 6</text>
+          <text x="52" y="114" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">Direct CTA post</text>
+          <rect x="16" y="120" width="168" height="12" rx="2" fill="#1A1A30" opacity="0.85"/>
+          <rect x="16" y="120" width="28" height="12" rx="2" fill="#C9A84C"/>
+          <text x="30" y="129" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#1A1410">Day 7</text>
+          <text x="52" y="129" font-family="Arial,sans-serif" font-size="6" fill="#E8C97A">Review results — plan next steps</text>
+          <rect width="200" height="5" y="135" fill="#C9A84C"/>
+        </svg>
+        <div style="padding:12px 14px;font-size:12.5px;font-weight:500;color:var(--text);border-top:1px solid var(--border);">7-Day Launch Calendar<div style="font-size:11.5px;color:var(--text-soft);margin-top:2px;">Day-by-day posting and action plan</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SIMPLE LAUNCH FLOW -->
+<section class="flow reveal">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">How To Use The Launch Pack</span>
+    <div class="gold-rule"></div>
+    <h2>Six simple steps — in order</h2>
+    <div class="flow-steps" style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;">
+      <div class="flow-step" style="flex:0 0 170px;"><div class="flow-n">1</div><div class="flow-t">Read Me First</div><p class="flow-d">Understand the correct starting point.</p></div>
+      <div class="flow-step" style="flex:0 0 170px;"><div class="flow-n">2</div><div class="flow-t">Launch Guide</div><p class="flow-d">Learn how the templates fit together.</p></div>
+      <div class="flow-step" style="flex:0 0 170px;"><div class="flow-n">3</div><div class="flow-t">Sales Page</div><p class="flow-d">Create your basic page or listing.</p></div>
+      <div class="flow-step" style="flex:0 0 170px;"><div class="flow-n">4</div><div class="flow-t">Social Posts</div><p class="flow-d">Prepare posts to share your offer.</p></div>
+      <div class="flow-step" style="flex:0 0 170px;"><div class="flow-n">5</div><div class="flow-t">Email Swipes</div><p class="flow-d">Write simple email messages.</p></div>
+      <div class="flow-step" style="flex:0 0 170px;"><div class="flow-n">6</div><div class="flow-t">7-Day Calendar</div><p class="flow-d">Follow the plan and stay organized.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR / NOT FOR -->
+<section class="fornotfor reveal">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">Honest Expectations</span>
+    <div class="gold-rule"></div>
+    <h2>This upgrade is a good fit — and a poor fit</h2>
+    <div class="fnf-wrap">
+      <div class="fnfc yes">
+        <h3>✓ This Is For You</h3>
+        <ul>
+          <li>You want help creating launch materials</li>
+          <li>You do not want to write everything from scratch</li>
+          <li>You want sales page and listing templates</li>
+          <li>You want social media post templates</li>
+          <li>You want simple email swipe examples</li>
+          <li>You want a beginner-friendly launch calendar</li>
+          <li>You are willing to edit the templates</li>
+          <li>You are willing to take action and improve</li>
+        </ul>
+      </div>
+      <div class="fnfc no">
+        <h3>✗ This Is Not For You</h3>
+        <ul>
+          <li>You expect guaranteed sales or traffic</li>
+          <li>You want a push-button system</li>
+          <li>You do not want to edit the templates</li>
+          <li>You want someone else to launch for you</li>
+          <li>You want advanced paid advertising training</li>
+          <li>You want complex funnel strategy</li>
+          <li>You are looking for income promises</li>
+          <li>You are not willing to test and improve</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section class="expect reveal">
+  <div class="container">
+    <div class="expect-box">
+      <h2>What You Should Expect</h2>
+      <p>This upgrade will not launch your offer for you. It will not guarantee sales, leads, income, clicks, traffic, followers, or engagement.</p>
+      <p>What it can do is give you a clear starting point for the words and materials you may need when promoting your first AI side hustle offer — so you spend less time staring at a blank page and more time taking organized action.</p>
+      <p>You will still need to edit the templates, add your own product name and links, match the copy to your offer, follow platform rules, test your message, and improve over time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OPTIONAL SKIP NOTE -->
+<section class="optional reveal" id="no-thanks">
+  <div class="container">
+    <p>This upgrade is entirely optional. You can still use the <strong>AI Side Hustle Starter Kit For Beginners</strong> without it. The starter kit is a complete starting point on its own. This upgrade simply adds done-for-you launch materials for buyers who want them.</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="fcta reveal" id="get-access">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">One-Time Offer</span>
+    <div class="gold-rule"></div>
+    <h2>Add The Done-For-You Launch Pack<br>To Your Order Now</h2>
+    <p class="sub">6 files. Sales page templates, social posts, email swipes, and a 7-day launch calendar — all ready to edit and use.</p>
+
+    <div class="price-box">
+      <div class="pl">One-Time Upgrade Price</div>
+      <div class="pv">$27</div>
+      <div class="ps">Instant download &nbsp;·&nbsp; No subscription &nbsp;·&nbsp; Personal use license</div>
+    </div>
+
+    <!-- ★ EDIT: Replace href below with your real WarriorPlus OTO1 buy link -->
+    <a href="https://warriorplus.com/o2/buy/r13zmh/zxhpfb/rdvppn" class="btn-cta btn-cta--large"><em>✦ Yes — Add The Launch Pack To My Order ✦</em></a>
+    <div class="sec">🔒 &nbsp;<span>Secure Checkout via WarriorPlus</span> &nbsp;·&nbsp; Instant Digital Delivery &nbsp;·&nbsp; PDF Format &nbsp;🔒</div>
+    <br><br>
+    <!-- ★ EDIT: Replace href below with your real WarriorPlus no-thanks link -->
+    <a href="https://warriorplus.com/o/nothanks/zxhpfb" class="btn-skip">No thanks, I will continue without the launch pack.</a>
+  </div>
+</section>
+
+<!-- DISCLAIMERS -->
+<div class="wplus_spdisclaimer" style="max-width:580px;margin:20px auto 0;background:var(--cream-2);border:1px solid var(--border);border-radius:10px;padding:14px 20px;font-size:12px;color:var(--text-soft);line-height:1.7;text-align:center;display:none;"></div>
+<style>.wplus_spdisclaimer:not(:empty){display:block!important;}</style>
+<section class="disc-s">
+  <div class="container">
+    <h3>Important Notices & Disclaimers</h3>
+    <div class="db"><strong>Earnings & Income Disclaimer</strong><br>This product is provided for educational and informational purposes only. No income, sales, traffic, leads, followers, engagement, rankings, commissions, downloads, or business outcomes are guaranteed. Individual results will vary and depend on many factors including effort, consistency, niche selection, product quality, audience, platform rules, market demand, skills, timing, and actions taken. Any examples are for educational purposes only and are not promises or guarantees of what you will earn or achieve.</div>
+    <div class="db"><strong>Product Disclaimer</strong><br>This product does not provide legal, financial, tax, business, advertising, platform compliance, or professional advice. Always do your own research and follow the rules, policies, and terms of service of any platform you use.</div>
+    <div class="db"><strong>AI-Generated Content Notice</strong><br>Some materials in this product may involve the use of AI tools or AI-assisted content. All AI-generated content should be reviewed, edited, fact-checked, and personalized before use. You are responsible for the accuracy, suitability, and appropriateness of any content you create or publish using this kit.</div>
+    <div class="db"><strong>Template Use Disclaimer</strong><br>The templates, swipes, and examples included are starting points only. You are responsible for editing them to match your own offer, audience, brand, platform, and legal requirements. Do not use templates in a misleading way or to make income claims or guaranteed result claims.</div>
+    <div class="db"><strong>License Terms</strong><br>This kit is sold under a <strong>personal-use license</strong>. The kit itself — its files, content, and design — may not be resold, redistributed, rebranded, shared, or included as a bonus inside another paid product without written permission. However, anything you create using the worksheets, prompts, and planning tools — such as your own products, services, or content — is yours to use in your own business.</div>
+    <div class="db"><strong>Digital Product & Refund Notice</strong><br>This is a digital product. No physical item will be shipped. After purchase you will receive access to downloadable PDF files. Due to the nature of instant-access downloadable products, all sales are final unless otherwise stated on the WarriorPlus checkout page or required by applicable law.</div>
+    <div class="db"><strong>WarriorPlus Notice</strong><br>This product is sold through WarriorPlus. WarriorPlus does not endorse, approve, or sponsor this product and is not responsible for any claims or representations made on this page.</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Done-For-You AI Side Hustle Launch Pack &nbsp;·&nbsp; All Rights Reserved &nbsp;·&nbsp;
+  <a href="https://simonfromscotland.com/wp-content/uploads/2026/06/privacy_policy.html">Privacy Policy</a> &nbsp;·&nbsp;
+  <a href="https://simonfromscotland.com/wp-content/uploads/2026/06/terms_of_use.html">Terms of Use</a> &nbsp;·&nbsp;
+  <a href="mailto:simonfoxhouse@gmail.com">Support</a> &nbsp;·&nbsp;
+  <a href="https://warriorplus.com/as/o/r13zmh" target="_blank" rel="noopener">Affiliate Programme</a></p>
+</footer>
+
+<script>
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.07});
+  reveals.forEach(el=>obs.observe(el));
+</script>
+<script type="text/javascript" src="https://warriorplus.com/o2/js/zxhpfb" defer></script>
+</body>
+</html>

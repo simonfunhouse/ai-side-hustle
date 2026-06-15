@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTO 3 — AI Side Hustle Traffic & Buyer Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold:#C9A84C;--gold-light:#E8C97A;--gold-pale:#FFF8E7;--gold-mid:#EDD87A;
+    --cream:#FDFAF4;--cream-2:#F7F2E8;--dark:#1A1410;--dark-mid:#3D3020;
+    --text:#2E2416;--text-soft:#6B5A3E;--white:#FFFFFF;--border:#E8DECA;
+    --green:#2D6A3F;--red-soft:#8B3A2A;--shadow:rgba(30,20,5,0.08);
+    --kit3:#2D7A4A;--kit3-light:#EAF4EC;--kit3-mid:#9ABA7A;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;font-size:16px;}
+  .container{max-width:820px;margin:0 auto;padding:0 24px;}
+  .container--wide{max-width:1000px;margin:0 auto;padding:0 24px;}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;}
+  .gold-rule{width:56px;height:3px;background:var(--gold);border-radius:2px;margin:0 auto 20px;}
+
+  /* TOP BAR — kit3 green */
+  .top-bar{background:var(--kit3);color:#FFFFFF;text-align:center;padding:13px 20px;font-size:18px;font-weight:600;letter-spacing:0.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .top-bar span{background:rgba(255,255,255,0.18);border-radius:4px;padding:2px 10px;margin-right:8px;font-size:12px;letter-spacing:1px;text-transform:uppercase;}
+
+  /* TRANSITION BAND */
+  .transition{background:var(--gold-pale);border-bottom:2px solid var(--gold-mid);padding:28px 0;text-align:center;}
+  .transition p{font-size:15px;color:var(--dark-mid);max-width:640px;margin:0 auto 6px;line-height:1.65;}
+  .transition p:last-child{margin-bottom:0;}
+  .transition strong{color:var(--dark);}
+  .transition .big-q{font-family:'DM Serif Display',serif;font-style:italic;font-size:19px;color:var(--dark);margin-top:14px;}
+
+  /* HERO */
+  .hero{background:var(--white);border-bottom:1px solid var(--border);padding:64px 0 56px;text-align:center;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(45,122,74,0.05) 0%,transparent 70%);pointer-events:none;}
+  .hero-badge{display:inline-block;background:var(--kit3-light);border:1px solid rgba(45,122,74,0.25);color:var(--kit3);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:6px 20px;border-radius:40px;margin-bottom:24px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(30px,5vw,52px);font-weight:900;line-height:1.12;color:var(--dark);max-width:720px;margin:0 auto 18px;}
+  .hero h1 em{font-style:italic;color:var(--gold);}
+  .hero-sub{font-size:17px;color:var(--text-soft);max-width:580px;margin:0 auto 24px;line-height:1.65;}
+  .kit-types{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:28px;}
+  .type-pill{background:var(--kit3-light);border:1px solid rgba(45,122,74,0.25);color:var(--kit3);font-size:12.5px;font-weight:600;padding:6px 14px;border-radius:20px;}
+  .hero-not{background:var(--cream-2);border:1px solid var(--border);border-radius:10px;padding:14px 22px;display:inline-block;max-width:560px;font-size:13.5px;color:var(--text-soft);line-height:1.6;margin-bottom:20px;text-align:left;}
+  .hero-not span{display:block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--kit3);margin-bottom:6px;}
+  .hero-answer{background:var(--gold-pale);border:1px solid var(--gold-mid);border-radius:12px;padding:18px 28px;display:inline-block;max-width:600px;font-size:15px;color:var(--dark-mid);font-weight:500;line-height:1.55;margin-bottom:32px;}
+
+  /* BUTTONS */
+  .btn-cta{display:inline-block;background:var(--gold);color:var(--dark);font-family:'DM Sans',sans-serif;font-size:17px;font-weight:700;padding:18px 48px;border-radius:8px;text-decoration:none;cursor:pointer;border:none;box-shadow:0 4px 24px rgba(201,168,76,0.35);transition:background 0.2s,transform 0.15s;}
+  .btn-cta:hover{background:var(--gold-light);transform:translateY(-2px);}
+  .btn-cta--large{font-size:19px;padding:20px 56px;}
+  .btn-skip{display:block;font-size:14px;color:var(--text-soft);margin-top:14px;text-decoration:underline;cursor:pointer;}
+  .btn-skip:hover{color:var(--dark);}
+  .cta-note{font-size:12px;color:var(--text-soft);margin-top:10px;}
+
+  /* WHY */
+  .why{padding:72px 0;background:var(--cream);}
+  .why h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,36px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:10px;}
+  .why-intro{text-align:center;color:var(--text-soft);font-size:15px;max-width:540px;margin:0 auto 36px;line-height:1.65;}
+  .stuck-list{list-style:none;max-width:560px;margin:0 auto 32px;}
+  .stuck-list li{padding:11px 0 11px 30px;position:relative;font-size:15px;color:var(--text);border-bottom:1px solid var(--border);}
+  .stuck-list li::before{content:'?';position:absolute;left:0;color:var(--gold);font-weight:700;font-size:15px;}
+  .bridge{text-align:center;font-family:'DM Serif Display',serif;font-style:italic;font-size:20px;color:var(--dark-mid);max-width:560px;margin:0 auto;line-height:1.5;}
+  .bridge strong{color:var(--gold);font-style:normal;}
+
+  /* HELPS */
+  .helps{padding:72px 0;background:var(--cream-2);border-top:1px solid var(--border);}
+  .helps h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,34px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:36px;}
+  .helps-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:720px;margin:0 auto;}
+  @media(max-width:560px){.helps-grid{grid-template-columns:1fr;}}
+  .helps-item{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 18px;display:flex;align-items:center;gap:12px;font-size:14px;font-weight:500;color:var(--text);}
+  .hck{width:22px;height:22px;background:var(--kit3-light);border:1.5px solid var(--kit3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:var(--kit3);font-weight:800;}
+
+  /* FILES */
+  .files{padding:80px 0;background:var(--white);border-top:1px solid var(--border);}
+  .files h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:10px;}
+  .files-intro{text-align:center;color:var(--text-soft);font-size:15px;max-width:520px;margin:0 auto 48px;}
+  .file-cards{display:grid;gap:14px;}
+  .file-card{background:var(--cream);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+  .file-hdr{background:var(--dark);padding:14px 20px;display:flex;align-items:center;gap:14px;}
+  .file-num{width:32px;height:32px;background:var(--kit3);color:var(--white);border-radius:50%;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .file-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--white);}
+  .file-body{padding:16px 20px;}
+  .file-body p{font-size:14px;color:var(--text-soft);line-height:1.65;margin-bottom:10px;}
+  .file-body p:last-child{margin-bottom:0;}
+  .file-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+  .file-tag{background:var(--kit3-light);border:1px solid rgba(45,122,74,0.2);color:var(--kit3);font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;}
+
+  /* LOOK INSIDE */
+  .look{padding:72px 0;background:var(--cream-2);border-top:1px solid var(--border);}
+  .look h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,34px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:10px;}
+  .look-intro{text-align:center;color:var(--text-soft);font-size:15px;margin-bottom:36px;}
+  .look-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:14px;}
+  .look-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 4px 20px var(--shadow);}
+  .look-cap{padding:12px 14px;font-size:12.5px;font-weight:500;color:var(--text);border-top:1px solid var(--border);}
+  .look-sub{font-size:11.5px;color:var(--text-soft);margin-top:2px;}
+
+  /* ONE OFFER SECTION */
+  .one-offer{padding:64px 0;background:var(--white);border-top:1px solid var(--border);}
+  .one-offer h2{font-family:'Playfair Display',serif;font-size:clamp(22px,2.5vw,30px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:10px;}
+  .one-offer-intro{text-align:center;color:var(--text-soft);font-size:15px;max-width:520px;margin:0 auto 32px;}
+  .platform-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;max-width:680px;margin:0 auto 28px;}
+  .platform-pill{background:var(--cream-2);border:1px solid var(--border);border-radius:8px;padding:10px 8px;text-align:center;font-size:12.5px;font-weight:500;color:var(--text-soft);}
+  .one-offer-rule{background:var(--dark);border-radius:12px;padding:22px 32px;max-width:580px;margin:0 auto;text-align:center;}
+  .one-offer-rule p{font-family:'DM Serif Display',serif;font-style:italic;font-size:19px;color:var(--gold-light);line-height:1.5;}
+  .one-offer-rule span{display:block;font-family:'DM Sans',sans-serif;font-style:normal;font-size:13px;color:rgba(255,255,255,0.55);margin-top:10px;font-weight:400;}
+
+  /* FLOW */
+  .flow{padding:72px 0;background:var(--cream);border-top:1px solid var(--border);}
+  .flow h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,34px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:36px;}
+  .flow-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:14px;}
+  .flow-step{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px 16px;text-align:center;position:relative;}
+  .flow-step::after{content:'→';position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:20px;font-weight:700;}
+  .flow-step:last-child::after{display:none;}
+  .flow-n{width:38px;height:38px;background:var(--kit3);color:var(--white);border-radius:50%;font-size:15px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-family:'Playfair Display',serif;}
+  .flow-t{font-weight:700;font-size:13px;color:var(--dark);margin-bottom:5px;}
+  .flow-d{font-size:12px;color:var(--text-soft);line-height:1.4;}
+
+  /* STATS */
+  .stats{background:var(--dark);padding:48px 0;}
+  .stats-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;text-align:center;}
+  .stat{border:1px solid rgba(201,168,76,0.2);border-radius:10px;padding:18px 12px;}
+  .sn{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:var(--gold);line-height:1;margin-bottom:4px;}
+  .sl{font-size:12px;color:rgba(255,255,255,0.65);font-weight:500;}
+
+  /* FOR / NOT FOR */
+  .fornotfor{padding:64px 0;background:var(--cream-2);border-top:1px solid var(--border);}
+  .fornotfor h2{font-family:'Playfair Display',serif;font-size:clamp(22px,2.5vw,30px);font-weight:700;color:var(--dark);text-align:center;margin-bottom:36px;}
+  .fnf-wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:720px;margin:0 auto;}
+  @media(max-width:560px){.fnf-wrap{grid-template-columns:1fr;}}
+  .fnfc h3{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid;}
+  .fnfc.yes h3{color:var(--green);border-color:var(--green);}
+  .fnfc.no h3{color:var(--red-soft);border-color:var(--red-soft);}
+  .fnfc ul{list-style:none;}
+  .fnfc li{font-size:14px;padding:7px 0 7px 24px;position:relative;border-bottom:1px solid var(--border);color:var(--text);}
+  .fnfc.yes li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;}
+  .fnfc.no  li::before{content:'✗';position:absolute;left:0;color:var(--red-soft);font-weight:700;}
+
+  /* EXPECT */
+  .expect{padding:56px 0;background:var(--white);border-top:1px solid var(--border);}
+  .expect-box{background:var(--cream-2);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:10px;padding:28px 32px;max-width:700px;margin:0 auto;}
+  .expect-box h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--dark);margin-bottom:12px;}
+  .expect-box p{font-size:15px;color:var(--text);line-height:1.75;margin-bottom:10px;}
+  .expect-box p:last-child{margin-bottom:0;}
+  .expect-goal{font-family:'DM Serif Display',serif;font-style:italic;font-size:18px;color:var(--dark-mid);margin-top:16px;padding-top:16px;border-top:1px solid var(--border);}
+
+  /* OPTIONAL */
+  .optional{padding:40px 0;background:var(--cream);border-top:1px solid var(--border);text-align:center;}
+  .optional p{font-size:14px;color:var(--text-soft);max-width:620px;margin:0 auto;}
+
+  /* FINAL CTA */
+  .fcta{padding:72px 0;background:var(--gold-pale);border-top:1px solid var(--gold-mid);text-align:center;}
+  .fcta h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:900;color:var(--dark);line-height:1.2;margin-bottom:14px;}
+  .fcta .sub{color:var(--text-soft);font-size:16px;max-width:520px;margin:0 auto 32px;line-height:1.6;}
+  .price-box{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:28px 40px;display:inline-block;margin-bottom:28px;box-shadow:0 8px 40px var(--shadow);}
+  .pl{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-soft);margin-bottom:4px;}
+  .pv{font-family:'Playfair Display',serif;font-size:54px;font-weight:900;color:var(--dark);line-height:1;}
+  .ps{font-size:13px;color:var(--text-soft);margin-top:6px;}
+  .pay-ph{background:var(--white);border:2px dashed var(--gold-mid);border-radius:10px;padding:20px 32px;font-size:14px;color:var(--text-soft);margin:0 auto 24px;max-width:440px;}
+  .pay-ph strong{display:block;color:var(--dark-mid);margin-bottom:4px;font-size:15px;}
+  .sec{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--text-soft);margin-top:14px;}
+  .sec span{color:var(--green);font-weight:600;}
+
+  /* DISCLAIMERS */
+  .disc-s{background:var(--cream-2);border-top:1px solid var(--border);padding:48px 0 36px;}
+  .disc-s h3{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);text-align:center;margin-bottom:22px;}
+  .db{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin-bottom:10px;font-size:12.5px;color:var(--text-soft);line-height:1.7;}
+  .db strong{color:var(--text);}
+
+  footer{background:var(--dark);color:rgba(255,255,255,0.35);text-align:center;padding:22px;font-size:12px;}
+  footer a{color:var(--gold);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+  .hero>div>*{animation:fadeUp 0.55s ease both;}
+  .hero .hero-badge{animation-delay:0.1s;}
+  .hero h1{animation-delay:0.2s;}
+  .hero-sub{animation-delay:0.3s;}
+  .kit-types{animation-delay:0.35s;}
+  .hero-not{animation-delay:0.38s;}
+  .hero-answer{animation-delay:0.42s;}
+  .hero .cta-wrap{animation-delay:0.5s;}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity 0.55s ease,transform 0.55s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+  @media(max-width:560px){.flow-step::after{display:none;}.flow-steps{grid-template-columns:1fr 1fr;}}
+</style>
+<script type="text/javascript" src="https://warriorplus.com/o2/js/hf100w" defer></script>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">⚡ AI Side Hustle Traffic & Buyer Kit ⚡</div>
+
+<!-- TRANSITION BAND -->
+<div class="transition reveal">
+  <div class="container">
+    <p>You are building the pieces of your AI side hustle. You now have a starter kit to help you choose your idea and take your first steps. You may also have added the Launch Pack for simple launch materials, and the Product Builder Kit to help create your first digital product.</p>
+    <p>But there is one more question that matters:</p>
+    <p class="big-q">"How do I get people to actually see my offer?"</p>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-badge">Optional Upgrade &nbsp;·&nbsp; Special Post-Purchase Offer &nbsp;·&nbsp; Optional Add-On</span>
+    <h1>A Simple <em>Traffic & Buyer Attraction Kit</em><br>For Your AI Side Hustle</h1>
+    <p class="hero-sub">The AI Side Hustle Traffic & Buyer Kit helps beginners create simple traffic content, buyer attraction posts, short video scripts, lead magnets, and affiliate outreach materials.</p>
+    <div class="kit-types">
+      <span class="type-pill">30-Day Content Calendar</span>
+      <span class="type-pill">Post Templates</span>
+      <span class="type-pill">Video Scripts</span>
+      <span class="type-pill">Lead Magnet Kit</span>
+      <span class="type-pill">Affiliate Outreach</span>
+    </div>
+    <div class="hero-not">
+      <span>To be clear — this kit is not:</span>
+      Not an advanced advertising course &nbsp;·&nbsp; Not a paid traffic system &nbsp;·&nbsp; Not a guarantee of visitors, leads, sales, followers, commissions, or income
+    </div>
+    <div class="hero-answer">
+      📢 <strong>7 practical files</strong> — a beginner-friendly traffic support kit designed to help you start putting your offer in front of more people using simple content, list-building, and outreach methods.
+    </div>
+    <div class="cta-wrap">
+      <a href="#get-access" class="btn-cta btn-cta--large">Yes — Add The Traffic & Buyer Kit To My Order →</a>
+      <p class="cta-note">Instant digital access &nbsp;·&nbsp; Personal use license &nbsp;·&nbsp; Delivered via WarriorPlus</p>
+      <!-- NO-THANKS LINK: goes to OTO 4 (Reseller Licence page). Update href if funnel order or filename changes. -->
+      <a href="https://warriorplus.com/o/nothanks/hf100w" class="btn-skip">No thanks, I will continue without the traffic kit.</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why reveal">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">The Final Piece Most Beginners Are Missing</span>
+    <div class="gold-rule"></div>
+    <h2>Creating an offer is important.<br>Getting it seen is the next step.</h2>
+    <p class="why-intro">Once your offer and product exist, you still need a way to help people discover them. Most beginners get stuck asking:</p>
+    <ul class="stuck-list">
+      <li>Where should I promote my offer?</li>
+      <li>What should I post?</li>
+      <li>What should I say in short videos?</li>
+      <li>How do I attract the right people without sounding spammy?</li>
+      <li>How do I build an email list?</li>
+      <li>What should I give away as a lead magnet?</li>
+      <li>How do I find possible affiliates or partners?</li>
+      <li>How do I stay consistent without guessing every day?</li>
+    </ul>
+    <p class="bridge">This kit gives you a <strong>simple set of beginner-friendly tools</strong> to help with those questions — so you are not starting from a blank page every time you want to promote.</p>
+  </div>
+</section>
+
+<!-- WHAT IT HELPS YOU DO -->
+<section class="helps reveal">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">What This Upgrade Helps You Do</span>
+    <div class="gold-rule"></div>
+    <h2>Start promoting with more structure and less guessing</h2>
+    <div class="helps-grid">
+      <div class="helps-item"><div class="hck">✓</div>Understand beginner-friendly traffic methods</div>
+      <div class="helps-item"><div class="hck">✓</div>Choose simple ways to promote your offer</div>
+      <div class="helps-item"><div class="hck">✓</div>Plan 30 days of content</div>
+      <div class="helps-item"><div class="hck">✓</div>Create buyer attraction posts</div>
+      <div class="helps-item"><div class="hck">✓</div>Write short video scripts</div>
+      <div class="helps-item"><div class="hck">✓</div>Create simple lead magnet ideas</div>
+      <div class="helps-item"><div class="hck">✓</div>Start setting up list-building materials</div>
+      <div class="helps-item"><div class="hck">✓</div>Prepare affiliate outreach messages</div>
+      <div class="helps-item"><div class="hck">✓</div>Track what you are doing</div>
+      <div class="helps-item"><div class="hck">✓</div>Promote with clearer, more organized content</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET INSIDE -->
+<section class="files reveal">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">What You Get Inside</span>
+    <div class="gold-rule"></div>
+    <h2>7 Files To Help You Promote, Build Your List,<br>and Find Promotional Partners</h2>
+    <p class="files-intro">Each file covers one area of beginner traffic and promotion. Start with File 1 and work through in order.</p>
+    <div class="file-cards">
+
+      <div class="file-card">
+        <div class="file-hdr"><div class="file-num">1</div><div class="file-title">Read Me First</div></div>
+        <div class="file-body">
+          <p>How to use the traffic kit without getting overwhelmed — what order to open the files, how to choose one traffic method first, and how to avoid trying every platform at once. Start here before opening anything else.</p>
+        </div>
+      </div>
+
+      <div class="file-card">
+        <div class="file-hdr"><div class="file-num">2</div><div class="file-title">Beginner Traffic Guide</div></div>
+        <div class="file-body">
+          <p>The main traffic guide for beginners. Explains simple ways to start getting your offer in front of the right people — what traffic actually means, why it does not automatically mean sales, the importance of one offer and one platform, and a simple 7-day traffic challenge.</p>
+          <div class="file-tags"><span class="file-tag">Traffic basics</span><span class="file-tag">Platform choice</span><span class="file-tag">AI prompts</span><span class="file-tag">7-day challenge</span></div>
+        </div>
+      </div>
+
+      <div class="file-card">
+        <div class="file-hdr"><div class="file-num">3</div><div class="file-title">30-Day Content Calendar</div></div>
+        <div class="file-body">
+          <p>A simple daily posting plan for one offer and one audience. Includes 30 days of content ideas, helpful posts, trust-building posts, offer posts, engagement posts, suggested hooks and CTAs, notes sections, and weekly review prompts — so you always know what to post next.</p>
+          <div class="file-tags"><span class="file-tag">30-day plan</span><span class="file-tag">Hook ideas</span><span class="file-tag">CTA examples</span><span class="file-tag">Weekly review</span></div>
+        </div>
+      </div>
+
+      <div class="file-card">
+        <div class="file-hdr"><div class="file-num">4</div><div class="file-title">Buyer Attraction Post Templates</div></div>
+        <div class="file-body">
+          <p>Ready-to-edit social media post templates for your chosen platform. Includes 30 templates across 12 post types — introduction posts, problem/solution posts, beginner mistake posts, quick tip posts, what's-inside posts, who-it-is-for posts, FAQ posts, reminder posts, and direct CTA posts.</p>
+          <div class="file-tags"><span class="file-tag">30 templates</span><span class="file-tag">12 post types</span><span class="file-tag">Offer posts</span><span class="file-tag">CTA posts</span></div>
+        </div>
+      </div>
+
+      <div class="file-card">
+        <div class="file-hdr"><div class="file-num">5</div><div class="file-title">Short Video Traffic Script Pack</div></div>
+        <div class="file-body">
+          <p>Short-form video scripts for TikTok, Instagram Reels, YouTube Shorts, Facebook Reels, and more. Covers tips, mistakes, examples, walkthroughs, FAQ videos, soft offers, lead magnet videos, and behind-the-scenes content — including faceless and text-on-screen formats.</p>
+          <div class="file-tags"><span class="file-tag">TikTok</span><span class="file-tag">Reels</span><span class="file-tag">Shorts</span><span class="file-tag">Faceless video</span></div>
+        </div>
+      </div>
+
+      <div class="file-card">
+        <div class="file-hdr"><div class="file-num">6</div><div class="file-title">Simple Lead Magnet & List Building Kit</div></div>
+        <div class="file-body">
+          <p>A complete beginner guide to creating a simple free resource and starting your email list. Covers lead magnet ideas, sign-up page copy, a welcome email template, a 5-email follow-up sequence, and a lead magnet quality checklist — designed to keep list-building simple.</p>
+          <div class="file-tags"><span class="file-tag">Lead magnet ideas</span><span class="file-tag">Sign-up copy</span><span class="file-tag">5 email sequence</span><span class="file-tag">Quality checklist</span></div>
+        </div>
+      </div>
+
+      <div class="file-card">
+        <div class="file-hdr"><div class="file-num">7</div><div class="file-title">Affiliate Outreach Kit</div></div>
+        <div class="file-body">
+          <p>Simple affiliate and partner outreach materials — a step-by-step outreach process, partner research worksheet, outreach message templates, follow-up templates, affiliate swipe copy, bonus idea prompts, a partner tracking sheet, and a 7-day outreach plan.</p>
+          <div class="file-tags"><span class="file-tag">Outreach templates</span><span class="file-tag">Follow-up messages</span><span class="file-tag">Swipe copy</span><span class="file-tag">Tracking sheet</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LOOK INSIDE -->
+<section class="look reveal">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">A Look Inside The Traffic & Buyer Kit</span>
+    <div class="gold-rule"></div>
+    <h2>Practical tools — not complicated theory</h2>
+    <p class="look-intro">Every file is a professionally designed PDF with clear plans, editable templates, checklists, and prompts throughout.</p>
+    <div class="look-grid">
+
+      <!-- 30-Day Content Calendar -->
+      <div class="look-card">
+        <svg width="100%" viewBox="0 0 200 140" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>30-Day Content Calendar preview</title>
+          <rect width="200" height="140" fill="#FFF8E7"/>
+          <rect width="200" height="7" fill="#C9A84C"/>
+          <text x="100" y="20" text-anchor="middle" font-family="Georgia,serif" font-size="7.5" font-weight="700" fill="#1A1410">30-DAY CONTENT CALENDAR</text>
+          <rect x="16" y="25" width="168" height="1" fill="#E8DECA"/>
+          <rect x="16" y="30" width="168" height="12" rx="2" fill="#1A1410" opacity="0.85"/>
+          <text x="100" y="39.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#C9A84C">WEEK 1 — INTRODUCE YOUR OFFER</text>
+          <rect x="16" y="45" width="168" height="10" rx="2" fill="#EAF4EC"/>
+          <rect x="16" y="45" width="26" height="10" rx="2" fill="#2D7A4A" opacity="0.85"/>
+          <text x="29" y="52.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" font-weight="700" fill="#FFFFFF">Day 1</text>
+          <text x="50" y="52.5" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">Trust post — who you are</text>
+          <rect x="16" y="58" width="168" height="10" rx="2" fill="#FFF8E7" stroke="#E8DECA" stroke-width="0.3"/>
+          <rect x="16" y="58" width="26" height="10" rx="2" fill="#2D7A4A" opacity="0.6"/>
+          <text x="29" y="65.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" font-weight="700" fill="#FFFFFF">Day 2</text>
+          <text x="50" y="65.5" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">Problem post — what you solve</text>
+          <rect x="16" y="71" width="168" height="10" rx="2" fill="#EAF4EC"/>
+          <rect x="16" y="71" width="26" height="10" rx="2" fill="#2D7A4A" opacity="0.85"/>
+          <text x="29" y="78.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" font-weight="700" fill="#FFFFFF">Day 3</text>
+          <text x="50" y="78.5" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">Tip post — quick useful content</text>
+          <rect x="16" y="85" width="168" height="12" rx="2" fill="#1A1410" opacity="0.85"/>
+          <text x="100" y="94.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#C9A84C">WEEK 2 — BUILD TRUST</text>
+          <rect x="16" y="101" width="168" height="10" rx="2" fill="#FFF8E7" stroke="#E8DECA" stroke-width="0.3"/>
+          <rect x="16" y="101" width="26" height="10" rx="2" fill="#2D7A4A" opacity="0.6"/>
+          <text x="29" y="108.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" font-weight="700" fill="#FFFFFF">Day 8</text>
+          <text x="50" y="108.5" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">FAQ post — common questions</text>
+          <rect x="16" y="114" width="168" height="10" rx="2" fill="#EAF4EC"/>
+          <rect x="16" y="114" width="26" height="10" rx="2" fill="#2D7A4A" opacity="0.85"/>
+          <text x="29" y="121.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" font-weight="700" fill="#FFFFFF">Day 9</text>
+          <text x="50" y="121.5" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">Soft offer post — introduce product</text>
+          <text x="100" y="133" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="#9B8A6A">30 days of content inside</text>
+          <rect width="200" height="5" y="135" fill="#C9A84C"/>
+        </svg>
+        <div class="look-cap">30-Day Content Calendar<div class="look-sub">Daily posts with hooks and CTAs</div></div>
+      </div>
+
+      <!-- Buyer Attraction Post Templates -->
+      <div class="look-card">
+        <svg width="100%" viewBox="0 0 200 140" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>Buyer Attraction Post Templates preview</title>
+          <rect width="200" height="140" fill="#FFF8E7"/>
+          <rect width="200" height="7" fill="#C9A84C"/>
+          <text x="100" y="20" text-anchor="middle" font-family="Georgia,serif" font-size="7" font-weight="700" fill="#1A1410">BUYER ATTRACTION TEMPLATES</text>
+          <rect x="16" y="25" width="168" height="1" fill="#E8DECA"/>
+          <rect x="16" y="30" width="168" height="30" rx="4" fill="#EAF4EC" stroke="#9ABA7A" stroke-width="0.75"/>
+          <rect x="16" y="30" width="168" height="3" rx="2" fill="#2D7A4A" opacity="0.7"/>
+          <text x="22" y="41" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#2D7A4A">Template 1 — Problem / Solution Post</text>
+          <text x="22" y="50" font-family="Georgia,serif" font-size="6" font-style="italic" fill="#3D3020">A lot of [audience] struggle with [problem]</text>
+          <text x="22" y="57" font-family="Georgia,serif" font-size="6" font-style="italic" fill="#3D3020">because [reason]. Here is a simpler way...</text>
+          <rect x="16" y="65" width="168" height="28" rx="4" fill="#FFF8E7" stroke="#E8DECA" stroke-width="0.75"/>
+          <rect x="16" y="65" width="168" height="3" rx="2" fill="#2D7A4A" opacity="0.4"/>
+          <text x="22" y="76" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#2D7A4A">Template 2 — Quick Tip Post</text>
+          <text x="22" y="85" font-family="Georgia,serif" font-size="6" font-style="italic" fill="#3D3020">Here is a simple tip for [audience] who</text>
+          <text x="22" y="91" font-family="Georgia,serif" font-size="6" font-style="italic" fill="#3D3020">want to [goal]: [tip here]</text>
+          <rect x="16" y="98" width="168" height="26" rx="4" fill="#EAF4EC" stroke="#9ABA7A" stroke-width="0.75"/>
+          <rect x="16" y="98" width="168" height="3" rx="2" fill="#2D7A4A" opacity="0.7"/>
+          <text x="22" y="109" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#2D7A4A">Template 3 — What's Inside Post</text>
+          <text x="22" y="118" font-family="Georgia,serif" font-size="6" font-style="italic" fill="#3D3020">Here is what you get inside [Product]:</text>
+          <text x="22" y="125" font-family="Georgia,serif" font-size="6" font-style="italic" fill="#3D3020">+ [item] + [item] + [item]</text>
+          <text x="100" y="133" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="#9B8A6A">12 post types inside</text>
+          <rect width="200" height="5" y="135" fill="#C9A84C"/>
+        </svg>
+        <div class="look-cap">Buyer Attraction Templates<div class="look-sub">30 templates across 12 post types</div></div>
+      </div>
+
+      <!-- Video Script Pack -->
+      <div class="look-card">
+        <svg width="100%" viewBox="0 0 200 140" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>Short Video Script Pack preview</title>
+          <rect width="200" height="140" fill="#FFF8E7"/>
+          <rect width="200" height="7" fill="#C9A84C"/>
+          <text x="100" y="20" text-anchor="middle" font-family="Georgia,serif" font-size="7" font-weight="700" fill="#1A1410">SHORT VIDEO SCRIPT PACK</text>
+          <rect x="16" y="25" width="168" height="1" fill="#E8DECA"/>
+          <rect x="16" y="30" width="168" height="32" rx="4" fill="#1A1410" opacity="0.06" stroke="#E8DECA" stroke-width="0.5"/>
+          <text x="22" y="41" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#2D7A4A">Script 1 — Quick Tip Video</text>
+          <text x="22" y="50" font-family="Arial,sans-serif" font-size="6" fill="#6B5A3E" font-weight="700">HOOK:</text>
+          <text x="46" y="50" font-family="Georgia,serif" font-size="6" font-style="italic" fill="#3D3020">"If you want [goal], try this..."</text>
+          <text x="22" y="58" font-family="Arial,sans-serif" font-size="6" fill="#6B5A3E" font-weight="700">BODY:</text>
+          <text x="46" y="58" font-family="Georgia,serif" font-size="6" font-style="italic" fill="#3D3020">"[tip or step here]"</text>
+          <rect x="22" y="61" width="50" height="7" rx="2" fill="#2D7A4A" opacity="0.2"/>
+          <text x="24" y="67" font-family="Arial,sans-serif" font-size="5.5" fill="#2D7A4A" font-weight="700">CTA: "Check the link"</text>
+          <rect x="16" y="68" width="168" height="30" rx="4" fill="#EAF4EC" stroke="#9ABA7A" stroke-width="0.5"/>
+          <text x="22" y="79" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#2D7A4A">Script 2 — Beginner Mistake Video</text>
+          <text x="22" y="88" font-family="Arial,sans-serif" font-size="6" fill="#6B5A3E" font-weight="700">HOOK:</text>
+          <text x="46" y="88" font-family="Georgia,serif" font-size="6" font-style="italic" fill="#3D3020">"Most beginners make this mistake..."</text>
+          <text x="22" y="96" font-family="Arial,sans-serif" font-size="6" fill="#6B5A3E" font-weight="700">BODY:</text>
+          <text x="46" y="96" font-family="Georgia,serif" font-size="6" font-style="italic" fill="#3D3020">"[mistake] → [better approach]"</text>
+          <rect x="16" y="104" width="168" height="22" rx="4" fill="#1A1410" opacity="0.06" stroke="#E8DECA" stroke-width="0.5"/>
+          <text x="22" y="115" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#2D7A4A">Script 3 — Lead Magnet Video</text>
+          <text x="22" y="123" font-family="Georgia,serif" font-size="6" font-style="italic" fill="#3D3020">"Want [benefit]? I created a free [resource]..."</text>
+          <text x="100" y="133" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="#9B8A6A">25 scripts inside</text>
+          <rect width="200" height="5" y="135" fill="#C9A84C"/>
+        </svg>
+        <div class="look-cap">Short Video Script Pack<div class="look-sub">25 scripts — Hook / Body / CTA</div></div>
+      </div>
+
+      <!-- Lead Magnet Kit -->
+      <div class="look-card">
+        <svg width="100%" viewBox="0 0 200 140" role="img" xmlns="http://www.w3.org/2000/svg">
+          <title>Lead Magnet and List Building Kit preview</title>
+          <rect width="200" height="140" fill="#FFF8E7"/>
+          <rect width="200" height="7" fill="#C9A84C"/>
+          <text x="100" y="20" text-anchor="middle" font-family="Georgia,serif" font-size="7" font-weight="700" fill="#1A1410">LEAD MAGNET &amp; LIST BUILDING KIT</text>
+          <rect x="16" y="25" width="168" height="1" fill="#E8DECA"/>
+          <text x="16" y="37" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#2D7A4A">THE ONE AUDIENCE RULE:</text>
+          <rect x="16" y="40" width="168" height="14" rx="3" fill="#1A1410" opacity="0.85"/>
+          <text x="100" y="50" text-anchor="middle" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#C9A84C">One audience · One problem · One quick win</text>
+          <text x="16" y="67" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#2D7A4A">LEAD MAGNET IDEAS:</text>
+          <rect x="16" y="70" width="168" height="9" rx="2" fill="#EAF4EC"/>
+          <text x="22" y="77.5" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">&#9658; Simple checklist or quick-start guide</text>
+          <rect x="16" y="82" width="168" height="9" rx="2" fill="#FFF8E7" stroke="#E8DECA" stroke-width="0.3"/>
+          <text x="22" y="89.5" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">&#9658; One-page planning worksheet</text>
+          <rect x="16" y="94" width="168" height="9" rx="2" fill="#EAF4EC"/>
+          <text x="22" y="101.5" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">&#9658; Mini prompt pack for beginners</text>
+          <text x="16" y="116" font-family="Arial,sans-serif" font-size="6.5" font-weight="700" fill="#2D7A4A">FOLLOW-UP SEQUENCE:</text>
+          <rect x="16" y="119" width="168" height="9" rx="2" fill="#1A1410" opacity="0.06"/>
+          <text x="22" y="126.5" font-family="Arial,sans-serif" font-size="6" fill="#3D3020">Email 1: Welcome · Email 2: Tip · Email 3: Offer...</text>
+          <text x="100" y="134" text-anchor="middle" font-family="Arial,sans-serif" font-size="5.5" fill="#9B8A6A">5-email sequence included</text>
+          <rect width="200" height="5" y="135" fill="#C9A84C"/>
+        </svg>
+        <div class="look-cap">Lead Magnet Kit<div class="look-sub">Sign-up copy & 5-email sequence</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ONE OFFER SECTION -->
+<section class="one-offer reveal">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">Why Traffic Feels Difficult For Beginners</span>
+    <div class="gold-rule"></div>
+    <h2>There are too many platforms — and that is the problem</h2>
+    <p class="one-offer-intro">Most beginners feel overwhelmed because they think they need to be everywhere at once. They hear about all of these and try to do all of them:</p>
+    <div class="platform-grid">
+      <div class="platform-pill">Facebook</div>
+      <div class="platform-pill">TikTok</div>
+      <div class="platform-pill">Instagram</div>
+      <div class="platform-pill">YouTube</div>
+      <div class="platform-pill">LinkedIn</div>
+      <div class="platform-pill">Pinterest</div>
+      <div class="platform-pill">Email Lists</div>
+      <div class="platform-pill">Blogging</div>
+      <div class="platform-pill">Communities</div>
+      <div class="platform-pill">Affiliates</div>
+      <div class="platform-pill">Paid Ads</div>
+      <div class="platform-pill">SEO</div>
+    </div>
+    <div class="one-offer-rule">
+      <p>One offer. One audience. One main traffic method. One simple plan.</p>
+      <span>This kit is built around that idea — so you stop jumping between platforms and start taking consistent, organized action.</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats reveal">
+  <div class="container">
+    <div class="stats-g">
+      <div class="stat"><div class="sn">7</div><div class="sl">Files Included</div></div>
+      <div class="stat"><div class="sn">30</div><div class="sl">Day Content Calendar</div></div>
+      <div class="stat"><div class="sn">25</div><div class="sl">Video Scripts</div></div>
+      <div class="stat"><div class="sn">5</div><div class="sl">Email Follow-Up Sequence</div></div>
+      <div class="stat"><div class="sn">30</div><div class="sl">Post Templates</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIMPLE FLOW -->
+<section class="flow reveal">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">How To Use The Traffic Kit</span>
+    <div class="gold-rule"></div>
+    <h2>Seven steps — one platform at a time</h2>
+    <div class="flow-steps">
+      <div class="flow-step"><div class="flow-n">1</div><div class="flow-t">Read Me First</div><p class="flow-d">Avoid overwhelm — understand how the kit works.</p></div>
+      <div class="flow-step"><div class="flow-n">2</div><div class="flow-t">Traffic Guide</div><p class="flow-d">Choose one traffic method to start with.</p></div>
+      <div class="flow-step"><div class="flow-n">3</div><div class="flow-t">Content Calendar</div><p class="flow-d">Plan your first 30 days of content.</p></div>
+      <div class="flow-step"><div class="flow-n">4</div><div class="flow-t">Post Templates</div><p class="flow-d">Create posts for your chosen platform.</p></div>
+      <div class="flow-step"><div class="flow-n">5</div><div class="flow-t">Video Scripts</div><p class="flow-d">Use scripts if video fits your plan.</p></div>
+      <div class="flow-step"><div class="flow-n">6</div><div class="flow-t">Lead Magnet Kit</div><p class="flow-d">Create a free resource and start your list.</p></div>
+      <div class="flow-step"><div class="flow-n">7</div><div class="flow-t">Affiliate Outreach</div><p class="flow-d">Prepare messages for potential partners.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR / NOT FOR -->
+<section class="fornotfor reveal">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">Honest Expectations</span>
+    <div class="gold-rule"></div>
+    <h2>This upgrade is a good fit — and a poor fit</h2>
+    <div class="fnf-wrap">
+      <div class="fnfc yes">
+        <h3>✓ This Is For You</h3>
+        <ul>
+          <li>You want help promoting your AI side hustle offer</li>
+          <li>You do not know what to post</li>
+          <li>You want a 30-day content calendar</li>
+          <li>You want buyer attraction post templates</li>
+          <li>You want short video scripts</li>
+          <li>You want to create a simple lead magnet</li>
+          <li>You want to begin building an email list</li>
+          <li>You want affiliate outreach templates</li>
+          <li>You understand traffic and sales are not guaranteed</li>
+          <li>You are willing to post, test, track, and improve</li>
+        </ul>
+      </div>
+      <div class="fnfc no">
+        <h3>✗ This Is Not For You</h3>
+        <ul>
+          <li>You expect guaranteed traffic or sales</li>
+          <li>You want a push-button traffic system</li>
+          <li>You want advanced paid advertising training</li>
+          <li>You want someone else to promote your offer</li>
+          <li>You are not willing to create content</li>
+          <li>You are not willing to follow platform rules</li>
+          <li>You do not want to test and improve</li>
+          <li>You want viral content promises</li>
+          <li>You want instant buyers without effort</li>
+          <li>You want income guarantees</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section class="expect reveal">
+  <div class="container">
+    <div class="expect-box">
+      <h2>What You Should Expect</h2>
+      <p>This kit will not send traffic automatically. It will not guarantee visitors, clicks, leads, followers, sales, customers, commissions, downloads, rankings, engagement, or income.</p>
+      <p>What it can do is give you a clear beginner-friendly set of traffic and buyer attraction materials to help you take organized action — so you stop guessing what to post or say and start following a clearer plan.</p>
+      <p>You will still need to choose one audience, choose one main platform, edit the templates, create content, follow platform rules, test different messages, track what works, and improve consistently over time.</p>
+      <p class="expect-goal">Stop guessing what to post or say, and start following a clearer traffic plan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OPTIONAL NOTE -->
+<section class="optional reveal" id="no-thanks">
+  <div class="container">
+    <p>This upgrade is entirely optional. The <strong>AI Side Hustle Starter Kit</strong> helps you choose your idea and take your first steps. The <strong>Launch Pack</strong> helps you prepare launch materials. The <strong>Product Builder Kit</strong> helps you create a simple digital product. This <strong>Traffic & Buyer Kit</strong> helps you create the content, list-building materials, and outreach messages that can support promotion. You can skip this upgrade and still use everything you have already purchased.</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="fcta reveal" id="get-access">
+  <div class="container">
+    <span class="eyebrow" style="text-align:center;display:block;">Optional Upgrade</span>
+    <div class="gold-rule"></div>
+    <h2>Add The AI Side Hustle Traffic<br>& Buyer Kit To Your Order Now</h2>
+    <p class="sub">7 files — a 30-day content calendar, 25 video scripts, 30 buyer attraction post templates, a lead magnet kit with 5-email sequence, and an affiliate outreach kit. All beginner-friendly and ready to edit.</p>
+
+    <div class="price-box">
+      <div class="pl">One-Time Upgrade Price</div>
+      <div class="pv">$47</div>
+      <div class="ps">Instant download &nbsp;·&nbsp; No subscription &nbsp;·&nbsp; Personal use license</div>
+    </div>
+
+    <br>
+    <div id="get-access-btn">
+      <a href="https://warriorplus.com/o2/buy/r13zmh/hf100w/h725j0" class="btn-cta btn-cta--large"><em>✦ Yes — Add The Traffic & Buyer Kit To My Order ✦</em></a>
+    </div>
+    <div class="sec">🔒 &nbsp;<span>Secure Checkout via WarriorPlus</span> &nbsp;·&nbsp; Instant Digital Delivery &nbsp;·&nbsp; PDF Format &nbsp;🔒</div>
+    <br><br>
+    <a href="https://warriorplus.com/o/nothanks/hf100w" class="btn-skip">No thanks, I will continue without the traffic kit.</a>
+  </div>
+</section>
+
+<!-- DISCLAIMERS -->
+<div class="wplus_spdisclaimer" style="max-width:580px;margin:20px auto 0;background:var(--cream-2);border:1px solid var(--border);border-radius:10px;padding:14px 20px;font-size:12px;color:var(--text-soft);line-height:1.7;text-align:center;display:none;"></div>
+<style>.wplus_spdisclaimer:not(:empty){display:block!important;}</style>
+<section class="disc-s">
+  <div class="container">
+    <h3>Important Notices & Disclaimers</h3>
+    <div class="db"><strong>Earnings & Income Disclaimer</strong><br>This product is provided for educational and informational purposes only. No income, sales, traffic, leads, followers, engagement, rankings, commissions, downloads, customers, visitors, clicks, or business outcomes are guaranteed. Individual results will vary and depend on many factors including effort, consistency, niche selection, product quality, audience, platform rules, market demand, skills, timing, content quality, outreach quality, and actions taken. Any examples are for educational purposes only and are not promises or guarantees of what you will earn or achieve.</div>
+    <div class="db"><strong>Product Disclaimer</strong><br>This product does not provide legal, financial, tax, business, advertising, email marketing compliance, platform compliance, or professional advice. Always do your own research and follow the rules, policies, and terms of service of any platform, email service, marketplace, or community you use.</div>
+    <div class="db"><strong>AI-Generated Content Notice</strong><br>Some materials in this product may involve the use of AI tools or AI-assisted content. All AI-generated content should be reviewed, edited, fact-checked, and personalized before use. You are responsible for the accuracy, originality, suitability, and appropriateness of any content you create, publish, send, or distribute using this kit.</div>
+    <div class="db"><strong>Traffic & Outreach Disclaimer</strong><br>The traffic methods, post templates, video scripts, lead magnet materials, email examples, and outreach messages included in this product are starting points only. They do not guarantee traffic, replies, partnerships, affiliate promotions, list growth, engagement, clicks, leads, or sales. You are responsible for editing all materials to match your own offer, audience, brand, niche, platform, and legal requirements. Do not spam people. Do not use misleading claims. Do not make income claims or guaranteed result claims.</div>
+    <div class="db"><strong>Email & List Building Notice</strong><br>If you use the lead magnet or email list materials, you are responsible for following applicable email marketing laws, privacy rules, platform policies, and unsubscribe requirements. Only email people who have given appropriate permission. Include unsubscribe options where required.</div>
+    <div class="db"><strong>License Terms</strong><br>This kit is sold under a <strong>personal-use license</strong>. The kit itself — its files, content, and design — may not be resold, redistributed, rebranded, shared, or included as a bonus inside another paid product without written permission. However, anything you create using the worksheets, prompts, and planning tools — such as your own products, services, or content — is yours to use in your own business.</div>
+    <div class="db"><strong>Digital Product & Refund Notice</strong><br>This is a digital product. No physical item will be shipped. After purchase you will receive access to downloadable PDF files. Due to the nature of instant-access downloadable products, all sales are final unless otherwise stated on the WarriorPlus checkout page or required by applicable law.</div>
+    <div class="db"><strong>WarriorPlus Notice</strong><br>This product is sold through WarriorPlus. WarriorPlus does not endorse, approve, or sponsor this product and is not responsible for any claims or representations made on this page.</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 AI Side Hustle Traffic & Buyer Kit &nbsp;·&nbsp; All Rights Reserved &nbsp;·&nbsp;
+  <a href="https://simonfromscotland.com/wp-content/uploads/2026/06/privacy_policy.html">Privacy Policy</a> &nbsp;·&nbsp;
+  <a href="https://simonfromscotland.com/wp-content/uploads/2026/06/terms_of_use.html">Terms of Use</a> &nbsp;·&nbsp;
+  <a href="mailto:simonfoxhouse@gmail.com">Support</a> &nbsp;·&nbsp;
+  <a href="https://warriorplus.com/as/o/r13zmh" target="_blank" rel="noopener">Affiliate Programme</a></p>
+</footer>
+
+<script>
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.07});
+  reveals.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
