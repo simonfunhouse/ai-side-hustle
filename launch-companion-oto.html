@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WarriorPlus Launch Companion — Case File OTO 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:        #ECE1C4;
+    --paper-light:  #F7F1DE;
+    --paper-dark:   #D8C79A;
+    --ink:          #2A241C;
+    --ink-soft:     #5B5240;
+    --stamp-red:    #A1332A;
+    --stamp-red-dk: #7C271F;
+    --stamp-green:  #3C6B4A;
+    --highlight:    #EFC94C;
+    --rule:         rgba(42,36,28,0.28);
+    --shadow:       rgba(42,36,28,0.22);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      radial-gradient(ellipse at top left, rgba(255,255,255,0.25), transparent 60%),
+      repeating-linear-gradient(0deg, rgba(42,36,28,0.02) 0px, rgba(42,36,28,0.02) 1px, transparent 1px, transparent 3px);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .stamp-font{ font-family:'Special Elite', 'Courier New', monospace; }
+  .mono{ font-family:'JetBrains Mono', 'Courier New', monospace; }
+
+  a{ color:inherit; }
+
+  ::selection{ background:var(--highlight); color:var(--ink); }
+
+  .wrap{
+    max-width:860px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- Case file header strip ---------- */
+  .case-strip{
+    background:var(--ink);
+    color:var(--paper-light);
+    padding:10px 0;
+  }
+  .case-strip .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 28px;
+    justify-content:space-between;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    opacity:0.85;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:64px 0 28px;
+    overflow:hidden;
+  }
+  .folder-tab{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--paper-dark);
+    border:1px solid var(--rule);
+    border-bottom:none;
+    padding:7px 16px 9px;
+    border-radius:6px 6px 0 0;
+    font-family:'Special Elite', monospace;
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .folder-tab .dot{
+    width:6px; height:6px; border-radius:50%;
+    background:var(--stamp-red);
+    display:inline-block;
+  }
+
+  h1{
+    font-family:'Source Serif 4', Georgia, serif;
+    font-weight:700;
+    font-size:clamp(2.1rem, 4.6vw, 3.2rem);
+    line-height:1.12;
+    margin:18px 0 22px;
+    letter-spacing:-0.01em;
+  }
+  h1 .lede{
+    display:inline-block;
+    text-align:center;
+    font-weight:700;
+    font-size:16px;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--stamp-red);
+    border:2.5px double var(--stamp-red);
+    border-radius:4px;
+    padding:6px 16px 8px;
+    margin:0 0 18px;
+    transform:rotate(-4deg);
+    opacity:0.92;
+    mix-blend-mode:multiply;
+    font-family:'Special Elite', monospace;
+  }
+
+  .hero-sub{
+    font-size:1.14rem;
+    color:var(--ink-soft);
+    max-width:620px;
+    margin:26px 0 30px;
+  }
+
+  .mark{
+    background:linear-gradient(120deg, transparent 0%, transparent 3%, var(--highlight) 3%, var(--highlight) 97%, transparent 97%);
+    background-size:100% 0.55em;
+    background-repeat:no-repeat;
+    background-position:0 78%;
+    padding:0 2px;
+  }
+
+  /* ---------- Offer stamp box ---------- */
+  .offer-box{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:22px;
+    background:var(--paper-light);
+    border:1px solid var(--rule);
+    box-shadow:5px 5px 0 var(--shadow);
+    padding:22px 26px;
+    max-width:640px;
+  }
+  .stamp{
+    flex:0 0 auto;
+    width:104px; height:104px;
+    border:3.5px double var(--stamp-red);
+    border-radius:50%;
+    color:var(--stamp-red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transform:rotate(-9deg);
+    font-family:'Special Elite', monospace;
+    line-height:1.15;
+    opacity:0.92;
+    mix-blend-mode:multiply;
+    flex-direction:column;
+  }
+  .stamp .price{ font-size:1.05rem; font-weight:700; }
+  .stamp .unit{ font-size:0.55rem; letter-spacing:0.08em; }
+
+  .offer-copy{ flex:1 1 220px; }
+  .offer-copy .note{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    margin-bottom:10px;
+  }
+
+  .cta-btn{
+    display:inline-block;
+    background:var(--stamp-red);
+    color:var(--paper-light);
+    text-decoration:none;
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    padding:15px 26px;
+    border-radius:3px;
+    box-shadow:4px 4px 0 var(--stamp-red-dk);
+    transition:transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .cta-btn:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--stamp-red-dk); }
+  .cta-btn:active{ transform:translate(1px,1px); box-shadow:2px 2px 0 var(--stamp-red-dk); }
+  .cta-sub{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--ink-soft);
+    margin-top:9px;
+    letter-spacing:0.02em;
+  }
+
+  /* ---------- Torn divider ---------- */
+  .tear{
+    height:22px;
+    background:
+      linear-gradient(135deg, var(--paper) 12px, transparent 0) 0 0,
+      linear-gradient(-135deg, var(--paper) 12px, transparent 0) 0 0;
+    background-size:24px 24px;
+    background-repeat:repeat-x;
+  }
+
+  /* ---------- Section shell ---------- */
+  section{ padding:52px 0; }
+  section + section{ border-top:1px solid var(--rule); }
+  .tear + section{ padding-top:22px; }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--stamp-red);
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px; height:1px;
+    background:var(--stamp-red);
+    display:inline-block;
+  }
+
+  h2{
+    font-family:'Source Serif 4', Georgia, serif;
+    font-weight:700;
+    font-size:clamp(1.5rem, 3vw, 2.05rem);
+    line-height:1.22;
+    margin:0 0 16px;
+    max-width:680px;
+  }
+
+  p{ margin:0 0 16px; color:var(--ink); }
+  .lead{ font-size:1.05rem; color:var(--ink-soft); max-width:640px; }
+
+  .qline{
+    margin:0 0 4px;
+    padding-left:16px;
+    border-left:2px solid var(--paper-dark);
+    color:var(--ink-soft);
+  }
+
+  /* ---------- Exhibit grid ---------- */
+  .exhibits{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-top:28px;
+  }
+  @media (max-width:640px){ .exhibits{ grid-template-columns:1fr; } }
+
+  .exhibit{
+    position:relative;
+    background:var(--paper-light);
+    border:1px solid var(--rule);
+    padding:22px 20px 20px;
+    box-shadow:3px 3px 0 var(--shadow);
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity 0.5s ease, transform 0.5s ease;
+  }
+  .exhibit.in{ opacity:1; transform:translateY(0); }
+
+  .exhibit-tab{
+    position:absolute;
+    top:-13px; left:18px;
+    background:var(--stamp-red);
+    color:var(--paper-light);
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:4px 10px;
+    border-radius:2px;
+  }
+  .exhibit-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:10px;
+    margin-top:10px;
+  }
+  .exhibit h3{
+    font-family:'Source Serif 4', Georgia, serif;
+    font-size:1.12rem;
+    font-weight:700;
+    margin:0;
+    line-height:1.25;
+  }
+  .exhibit .value{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--stamp-green);
+    white-space:nowrap;
+  }
+  .exhibit .desc{
+    color:var(--ink-soft);
+    font-size:0.94rem;
+    margin:8px 0 10px;
+  }
+  .exhibit ul{
+    margin:0; padding-left:18px;
+    font-size:0.92rem;
+    color:var(--ink);
+  }
+  .exhibit li{ margin-bottom:5px; }
+
+  /* ---------- Checklist card ---------- */
+  .checklist{
+    background:var(--paper-light);
+    border:1px dashed var(--rule);
+    padding:24px 26px;
+    max-width:640px;
+    margin-top:20px;
+  }
+  .checklist .head{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--stamp-red);
+    margin-bottom:14px;
+  }
+  .checklist ul{ list-style:none; margin:0; padding:0; }
+  .checklist li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    padding:8px 0;
+    border-top:1px solid var(--rule);
+    font-size:0.98rem;
+  }
+  .checklist li:first-child{ border-top:none; }
+  .checklist li::before{
+    content:"☐";
+    color:var(--stamp-red);
+    font-size:1.05rem;
+    line-height:1.2;
+    flex:0 0 auto;
+  }
+  .checklist .goal{
+    margin-top:16px;
+    padding-top:14px;
+    border-top:1px solid var(--rule);
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+
+  /* ---------- Sticky note ---------- */
+  .sticky{
+    max-width:560px;
+    background:#F4E8AE;
+    border:1px solid rgba(42,36,28,0.15);
+    padding:24px 26px;
+    box-shadow:3px 4px 10px rgba(42,36,28,0.18);
+    transform:rotate(-1.3deg);
+    margin:26px 0 18px;
+    font-family:'Special Elite', monospace;
+    font-size:0.98rem;
+    line-height:1.55;
+  }
+  .sticky .attrib{
+    margin-top:12px;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+
+  /* ---------- Fit check ---------- */
+  .fit-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-top:24px;
+  }
+  @media (max-width:640px){ .fit-grid{ grid-template-columns:1fr; } }
+  .fit-col{
+    padding:22px 22px 20px;
+    border:1px solid var(--rule);
+    background:var(--paper-light);
+  }
+  .fit-col.yes{ border-left:4px solid var(--stamp-green); }
+  .fit-col.no{ border-left:4px solid var(--stamp-red); }
+  .fit-col .head{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .fit-col.yes .head{ color:var(--stamp-green); }
+  .fit-col.no .head{ color:var(--stamp-red); }
+  .fit-col ul{ margin:0; padding:0; list-style:none; }
+  .fit-col li{
+    padding:7px 0 7px 22px;
+    position:relative;
+    font-size:0.95rem;
+    border-top:1px solid var(--rule);
+  }
+  .fit-col li:first-child{ border-top:none; }
+  .fit-col.yes li::before{ content:"✓"; position:absolute; left:0; color:var(--stamp-green); font-weight:700; }
+  .fit-col.no li::before{ content:"✕"; position:absolute; left:0; color:var(--stamp-red); font-weight:700; }
+
+  /* ---------- Receipt / pricing ---------- */
+  .receipt{
+    max-width:520px;
+    background:var(--paper-light);
+    border:1px solid var(--rule);
+    box-shadow:4px 4px 0 var(--shadow);
+    padding:26px 28px;
+    margin-top:26px;
+    font-family:'JetBrains Mono', monospace;
+  }
+  .receipt-row{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:8px 0;
+    border-bottom:1px dotted var(--rule);
+    font-size:0.92rem;
+  }
+  .receipt-row.total{
+    border-bottom:none;
+    border-top:2px solid var(--ink);
+    margin-top:6px;
+    padding-top:14px;
+    font-weight:700;
+    font-size:1rem;
+  }
+  .receipt-row .strike{ text-decoration:line-through; color:var(--ink-soft); }
+  .final-price{
+    text-align:center;
+    margin-top:20px;
+    padding-top:18px;
+    border-top:1px dashed var(--rule);
+  }
+  .final-price .old{
+    font-family:'JetBrains Mono', monospace;
+    text-decoration:line-through;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+  .final-price .new{
+    font-family:'Special Elite', monospace;
+    color:var(--stamp-red);
+    font-size:2.4rem;
+    line-height:1.1;
+    transform:rotate(-2deg);
+    display:inline-block;
+    margin:6px 0 2px;
+  }
+  .final-price .terms{
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+
+  /* ---------- Final CTA ---------- */
+  .final-cta{
+    text-align:center;
+    padding:60px 0 70px;
+  }
+  .final-cta h2{ margin:0 auto 8px; }
+  .final-cta .tagline{
+    max-width:520px;
+    margin:0 auto 30px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+  .decline{
+    display:block;
+    margin-top:22px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    text-decoration:underline;
+    text-underline-offset:3px;
+    opacity:0.85;
+  }
+  .decline:hover{ opacity:1; }
+
+  footer{
+    background:var(--ink);
+    color:var(--paper-dark);
+    text-align:center;
+    padding:22px 0;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+
+  .center{ text-align:center; }
+</style>
+</head>
+<body>
+
+  <div class="case-strip">
+    <div class="wrap">
+      <span>Case File No. 2</span>
+      <span>Subject: WarriorPlus Launch</span>
+      <span>Status: Open — Evidence Attached</span>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="folder-tab"><span class="dot"></span> Exhibit Bundle · Post-Purchase Offer</div>
+
+      <h1>
+        <span class="lede">Congratulations</span>
+        You now know how to build your WarriorPlus funnel.
+      </h1>
+
+      <p class="hero-sub">
+        Setting up the funnel is only the beginning. Next you have to organise the launch,
+        recruit the right affiliates, and get your promotion ready before you go live.
+        This is the real case study and toolkit I wish I'd had before mine.
+      </p>
+    </div>
+  </header>
+
+  <div class="tear"></div>
+
+  <section>
+    <div class="wrap">
+      <p class="qline">Where do you find affiliates?</p>
+      <p class="qline">What do you actually say to them?</p>
+      <p class="qline">What goes in a JV Facebook post?</p>
+      <p class="qline">How much do you promote, and how do you know when you're overdoing it?</p>
+      <p class="qline" style="margin-bottom:18px;">What do you check before you hit go?</p>
+
+      <p class="lead">
+        There's another side to launching that nobody hands you a manual for. When I prepared
+        my own first launch, I learned most of this by doing it — mistakes included. Instead of
+        tidying those mistakes away, I kept the record: the emails, the posts, the send times,
+        the results, the corrections. I've turned that record into a case study and an adaptable toolkit.
+      </p>
+      <p class="lead">I call it the <span class="mark">WarriorPlus Launch Companion.</span></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Background</div>
+      <h2>Built from my own first launch.</h2>
+      <p class="lead">
+        When I launched the AI Side Hustle Starter Kit For Beginners, I didn't have a big team
+        or years of vendor history behind me. I was learning while building — the affiliate
+        emails, the Facebook posts, the applications, the files, the countdown to launch day.
+      </p>
+    </div>
+  </section>
+
+  <section id="exhibits">
+    <div class="wrap">
+      <div class="eyebrow">The Complete Package</div>
+      <h2>Everything inside the WarriorPlus Launch Companion</h2>
+      <p class="lead">Nine documents, organised as a case file — study them, then adapt them into your own campaign.</p>
+
+      <div class="exhibits">
+        <div class="exhibit">
+          <span class="exhibit-tab">Exhibit A</span>
+          <div class="exhibit-head"><h3>Affiliate Approval Guide</h3><span class="value">$17 value</span></div>
+          <p class="desc">How to review applications with judgement instead of approving everyone on instinct.</p>
+          <ul>
+            <li>What to look for in an affiliate profile — green flags and warning signs</li>
+            <li>Sales history and refund behaviour</li>
+            <li>Trial, standard and boosted commission structures</li>
+            <li>How to decline an application politely</li>
+            <li>Why a lower commission limits your financial exposure, but not your conversion rate</li>
+          </ul>
+        </div>
+
+        <div class="exhibit">
+          <span class="exhibit-tab">Exhibit B</span>
+          <div class="exhibit-head"><h3>Real Affiliate Recruitment Email Campaign</h3><span class="value">$27 value</span></div>
+          <p class="desc">The actual 11-email sequence from the launch — not polished fictional examples.</p>
+          <ul>
+            <li>Original subject lines, send dates and times</li>
+            <li>Open rates and click results, as recorded</li>
+            <li>The personalisation mistake, and the apology email that followed it</li>
+            <li>The strategic purpose behind each message, explained</li>
+          </ul>
+        </div>
+
+        <div class="exhibit">
+          <span class="exhibit-tab">Exhibit C</span>
+          <div class="exhibit-head"><h3>Facebook JV Group Post Campaign</h3><span class="value">$17 value</span></div>
+          <p class="desc">The original 9-post sequence, from first introduction through to launch day.</p>
+          <ul>
+            <li>The order and goal behind each post</li>
+            <li>How the product was introduced gradually, not dumped all at once</li>
+            <li>Original wording, dates, links and pricing, with notes on intent</li>
+          </ul>
+        </div>
+
+        <div class="exhibit">
+          <span class="exhibit-tab">Exhibit D</span>
+          <div class="exhibit-head"><h3>How to Use the Facebook Posts Guide</h3><span class="value">$17 value</span></div>
+          <p class="desc">The strategy behind the posts, so you can apply it to groups the original campaign never touched.</p>
+          <ul>
+            <li>Finding suitable JV and launch groups, and checking their rules first</li>
+            <li>Adapting the posts into your own voice</li>
+            <li>Responding to comments and objections</li>
+            <li>Keeping claims accurate, and avoiding spammy repetition</li>
+          </ul>
+        </div>
+
+        <div class="exhibit">
+          <span class="exhibit-tab">Exhibit E</span>
+          <div class="exhibit-head"><h3>First 24 Hours Checklist</h3><span class="value">$12 value</span></div>
+          <p class="desc">A time-blocked starting point so you're not trying to finish the whole launch in one sitting.</p>
+          <ul>
+            <li>Launch folders, files and a launch journal</li>
+            <li>Choosing a launch date and outlining your product</li>
+            <li>Built-in points to step away and rest</li>
+          </ul>
+        </div>
+
+        <div class="exhibit">
+          <span class="exhibit-tab">Exhibit F</span>
+          <div class="exhibit-head"><h3>Staying Sane Through Your Launch</h3><span class="value">$12 value</span></div>
+          <p class="desc">Honest, unhyped advice for the parts of a launch that get overwhelming fast.</p>
+          <ul>
+            <li>The one-step rule and a practical folder system</li>
+            <li>Realistic focus blocks and protecting your time</li>
+            <li>Resting without guilt — quiet progress still counts</li>
+          </ul>
+        </div>
+
+        <div class="exhibit">
+          <span class="exhibit-tab">Exhibit G</span>
+          <div class="exhibit-head"><h3>Start Here Guide</h3><span class="value">$7 value</span></div>
+          <p class="desc">The recommended order to work through the package, and how everything fits together.</p>
+        </div>
+
+        <div class="exhibit">
+          <span class="exhibit-tab">Exhibit H</span>
+          <div class="exhibit-head"><h3>AI Adaptation Prompt + Pre-Publishing Checklist</h3><span class="value">$17 value</span></div>
+          <p class="desc">A reusable prompt that rewrites each campaign message for your product while keeping its strategic purpose — plus a final checklist to catch the easiest mistake of all: sending someone else's product name, link or launch date to your own list.</p>
+          <ul>
+            <li>Built-in instruction against income claims, fake scarcity or unsupported statistics</li>
+            <li>Checks for updated dates, prices, links and personal details before you publish</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">How To Use It</div>
+      <h2>You're not buying messages to copy blindly.</h2>
+      <p class="lead">
+        The original emails and posts are included because they show what a genuine campaign
+        looked like — their value is in being real, not polished. Your product, audience,
+        prices, bonuses and launch date will all be different. Keep the strategy behind each
+        message; change everything else:
+      </p>
+
+      <div class="checklist">
+        <div class="head">Rewrite Before You Send</div>
+        <ul>
+          <li>Product name and description</li>
+          <li>Prices and commission structure</li>
+          <li>Launch date and affiliate link</li>
+          <li>Bonuses, deliverables and approval wording</li>
+          <li>The personal story — this one's mine</li>
+        </ul>
+        <p class="goal">The goal: messages that sound like you — not like Simon From Scotland promoting the AI Side Hustle Starter Kit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Worth Knowing</div>
+      <h2>Don't approve every affiliate who applies.</h2>
+      <p class="lead">
+        It's tempting to approve everyone the moment applications start coming in — you're
+        grateful for someone's interest. But approval is a business decision, not a reflex.
+        The Companion gives you safer wording to start from:
+      </p>
+
+      <div class="sticky">
+        "Mention [KEYWORD] in the notes box so I can identify your application. All applications
+        are reviewed individually."
+        <div class="attrib">— Approval reply, adapted from the original launch</div>
+      </div>
+
+      <p class="lead">
+        The original approval wording from my own launch is included too, alongside editor's
+        notes on why you'll want to adjust it to match your own policy.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Fit Check</div>
+      <h2>Who this is — and isn't — for.</h2>
+
+      <div class="fit-grid">
+        <div class="fit-col yes">
+          <div class="head">This is for you if</div>
+          <ul>
+            <li>You're preparing your first WarriorPlus product</li>
+            <li>You've finished the main training but need help organising the launch itself</li>
+            <li>You want real examples of affiliate emails and JV posts, not theory</li>
+            <li>You want to use AI to adapt material, not copy it</li>
+            <li>You'd rather learn from a real first launch than an exaggerated success story</li>
+          </ul>
+        </div>
+        <div class="fit-col no">
+          <div class="head">This isn't for you if</div>
+          <ul>
+            <li>You're expecting guaranteed sales</li>
+            <li>You want a substitute for building a useful product</li>
+            <li>You plan to publish the original messages word for word</li>
+            <li>You're looking for traffic to be supplied automatically</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <div class="eyebrow">What You're Getting Today</div>
+      <h2>The full stack.</h2>
+
+      <div class="receipt">
+        <div class="receipt-row"><span>Affiliate Approval Guide</span><span>$17</span></div>
+        <div class="receipt-row"><span>Real Affiliate Recruitment Email Case Study</span><span>$27</span></div>
+        <div class="receipt-row"><span>Facebook JV Group Post Case Study</span><span>$17</span></div>
+        <div class="receipt-row"><span>How to Use the Facebook Posts Guide</span><span>$17</span></div>
+        <div class="receipt-row"><span>First 24 Hours Checklist</span><span>$12</span></div>
+        <div class="receipt-row"><span>Staying Sane Through Your Launch</span><span>$12</span></div>
+        <div class="receipt-row"><span>Start Here Guide</span><span>$7</span></div>
+        <div class="receipt-row"><span>AI Adaptation Prompt &amp; Pre-Publishing Checklist</span><span>$17</span></div>
+        <div class="receipt-row total"><span>Total practical value</span><span>$126</span></div>
+
+        <div class="final-price">
+          <div class="old">$126.00</div>
+          <div class="new stamp-font">$37.00</div>
+          <div class="terms">One-time payment · added to this order only</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">No Polish</div>
+      <h2>Real statistics, real mistakes, real lessons.</h2>
+      <p class="lead">
+        You'll see messages with low open rates and emails with no clicks at all, sitting right
+        alongside the ones that worked. You'll see the personalisation error and the decisions
+        made at the time. Where the sample was too small to prove anything, the notes say so
+        plainly — a result that happened once in one campaign isn't presented as a rule for
+        every campaign.
+      </p>
+      <p class="lead">That's the kind of marketing education I think beginners actually need.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">A Straightforward Offer</div>
+      <h2>What I can and can't promise.</h2>
+      <p class="lead">
+        I can't promise your launch will succeed — nobody honestly can. What I can give you is
+        a real launch on record, practical guidance, editable campaign structures and the
+        lessons that came out of doing it for the first time. You'll still need to do the work,
+        adapt the material, and make sensible calls for your own product. But you won't be
+        starting from a blank page.
+      </p>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center;">Add The WarriorPlus Launch Companion Now</div>
+      <h2 style="text-align:center;">Study the campaign. Learn from the mistakes.<br>Keep the strategy. Adapt the wording. Make it your own.</h2>
+
+      <a class="cta-btn" href="#">Yes — Add This Practical Launch Toolkit</a>
+      <span class="cta-sub">$37.00 one-time upgrade</span>
+
+      <a class="decline" href="#">No thank you — I'll continue with the main course only, without the campaign case studies, affiliate guide or launch checklists.</a>
+    </div>
+  </section>
+
+  <footer>
+    WarriorPlus Launch Companion · OTO 1 · Simon From Scotland
+  </footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.exhibit').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
