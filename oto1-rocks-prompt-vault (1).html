@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wait — Add The R.O.C.K.S. Prompt Vault</title>
+<style>
+  :root{
+    --green:#0f3a34;
+    --green-deep:#0a2b26;
+    --cream:#faf8f4;
+    --ink:#1e2e2a;
+    --sage:#5f7268;
+    --gold:#d9b46a;
+    --gold-deep:#c39a4a;
+    --card:#eef4f2;
+    --line:#e2ddd0;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:Helvetica, Arial, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  h1,h2,h3{
+    font-family:Georgia,'Times New Roman',serif;
+    font-weight:normal;
+    color:var(--green);
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    background:var(--green-deep);
+    color:#cfe0da;
+    text-align:center;
+    font-size:12.5px;
+    letter-spacing:1.5px;
+    padding:9px 12px;
+    text-transform:uppercase;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--green);
+    color:#eef2f0;
+    position:relative;
+    overflow:hidden;
+    padding:56px 0 64px 0;
+  }
+  .hero .ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,0.10);}
+  .hero .ring1{width:340px;height:340px;top:-110px;right:-90px;}
+  .hero .ring2{width:460px;height:460px;top:-60px;right:-40px;border-color:rgba(255,255,255,0.06);}
+  .hero-inner{position:relative;z-index:2;}
+  .kicker{
+    display:inline-block;
+    font-size:12px;letter-spacing:2px;
+    color:var(--gold);
+    border:1px solid rgba(217,180,106,.5);
+    padding:5px 12px;border-radius:14px;
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:38px;line-height:1.18;color:#fff;margin-bottom:14px;
+  }
+  .hero h1 em{color:var(--gold);font-style:italic;}
+  .hero .sub{
+    font-family:Georgia,serif;font-style:italic;font-size:17px;line-height:1.55;
+    color:#d7e4df;max-width:520px;margin-bottom:28px;
+  }
+
+  /* ---------- R.O.C.K.S signature strip ---------- */
+  .rocks-strip{
+    display:flex;gap:8px;margin:0 0 30px 0;flex-wrap:wrap;
+  }
+  .rocks-tile{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(217,180,106,.4);
+    border-radius:8px;
+    padding:10px 14px;
+    min-width:88px;
+  }
+  .rocks-tile .letter{
+    font-family:Georgia,serif;color:var(--gold);font-size:22px;line-height:1;
+  }
+  .rocks-tile .word{
+    font-size:9.5px;letter-spacing:0.5px;color:#b9c9c3;text-transform:uppercase;margin-top:4px;
+  }
+
+  .btn{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--green-deep);
+    font-weight:bold;
+    font-size:16px;
+    padding:15px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+  }
+  .btn:hover{background:var(--gold-deep);}
+  .btn-ghost{
+    display:inline-block;
+    color:#cfe0da;
+    font-size:13.5px;
+    text-decoration:underline;
+    margin-left:18px;
+  }
+  .price-tag{
+    font-family:Georgia,serif;font-size:15px;color:#eef2f0;margin-top:14px;
+  }
+  .price-tag b{font-size:26px;color:#fff;}
+
+  /* ---------- sections ---------- */
+  section{padding:52px 0;}
+  .section-cream{background:var(--cream);}
+  .section-white{background:#fff;}
+  .eyebrow{
+    font-size:12px;letter-spacing:2px;color:var(--gold-deep);text-transform:uppercase;margin-bottom:8px;
+  }
+  h2.section-title{font-size:26px;margin-bottom:6px;}
+  .goldrule{width:46px;height:2px;background:var(--gold);margin:14px 0 24px 0;}
+  p.lead{font-size:16.5px;color:#3c4b46;max-width:620px;}
+
+  /* honest opener */
+  .honest p{margin:0 0 14px 0;}
+  .honest p:last-child{margin-bottom:0;}
+
+  /* what's inside grid */
+  .cat-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px;
+  }
+  .cat-card{
+    background:var(--card);
+    border-left:4px solid var(--green);
+    border-radius:5px;
+    padding:14px 16px;
+  }
+  .cat-card .num{color:var(--gold-deep);font-weight:bold;font-size:13px;}
+  .cat-card .name{font-size:14.5px;margin-top:2px;color:var(--ink);}
+  .cat-card .count{font-size:12px;color:var(--sage);margin-top:4px;}
+  .total-line{
+    text-align:center;margin-top:26px;font-family:Georgia,serif;font-style:italic;color:var(--green);font-size:16px;
+  }
+
+  /* who for / who not */
+  .split{
+    display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px;
+  }
+  .split-card{border-radius:8px;padding:22px 22px;}
+  .split-card.yes{background:var(--green);color:#eef2f0;}
+  .split-card.no{background:var(--card);color:var(--ink);border:1px solid var(--line);}
+  .split-card h3{font-size:16px;margin-bottom:12px;}
+  .split-card.yes h3{color:var(--gold);}
+  .split-card ul{margin:0;padding-left:18px;}
+  .split-card li{margin-bottom:8px;font-size:14.5px;line-height:1.5;}
+
+  /* price block */
+  .price-block{
+    background:var(--green);
+    color:#eef2f0;
+    border-radius:10px;
+    padding:40px 34px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .price-block .ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,0.08);}
+  .price-block .ring1{width:220px;height:220px;bottom:-90px;left:-70px;}
+  .price-block-inner{position:relative;z-index:2;}
+  .badge-refund{
+    display:inline-block;
+    border:1px solid rgba(217,180,106,.5);
+    color:var(--gold);
+    font-size:12px;letter-spacing:1px;text-transform:uppercase;
+    padding:5px 12px;border-radius:14px;margin-bottom:18px;
+  }
+  .price-block .amount{
+    font-family:Georgia,serif;font-size:48px;color:#fff;margin:6px 0 4px 0;
+  }
+  .price-block .amount-note{font-size:13px;color:#b9c9c3;margin-bottom:26px;}
+  .price-block .btn{font-size:17px;padding:16px 36px;}
+  .decline{
+    display:block;margin-top:16px;font-size:13px;color:#a9c2ba;text-decoration:underline;
+  }
+  .no-timer-note{
+    font-size:12.5px;color:#8ea79d;margin-top:20px;max-width:440px;margin-left:auto;margin-right:auto;
+  }
+  .wplus_spdisclaimer{
+    font-family: Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-size:11.5px;color:#7a9089;margin-top:14px;max-width:460px;margin-left:auto;margin-right:auto;
+    line-height:1.5;
+  }
+
+  /* faq */
+  details{
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+  }
+  summary{
+    font-family:Georgia,serif;font-size:16px;color:var(--green);cursor:pointer;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary:after{content:"+";font-size:20px;color:var(--gold-deep);}
+  details[open] summary:after{content:"\2212";}
+  details p{margin:10px 0 0 0;color:#3c4b46;font-size:14.5px;}
+
+  /* ps */
+  .ps{
+    background:var(--card);border-radius:8px;padding:26px 28px;margin-top:10px;
+    font-family:Georgia,serif;font-style:italic;color:#33443f;font-size:15px;line-height:1.65;
+  }
+
+  footer{
+    background:var(--green-deep);color:#8ea79d;text-align:center;font-size:12px;padding:28px 20px;
+  }
+
+  @media(max-width:600px){
+    .hero h1{font-size:30px;}
+    .cat-grid{grid-template-columns:1fr;}
+    .split{grid-template-columns:1fr;}
+    .rocks-tile{min-width:70px;padding:8px 10px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">Wait &mdash; your order isn&rsquo;t finished yet</div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="ring ring1"></div><div class="ring ring2"></div>
+    <div class="wrap hero-inner">
+      <div class="kicker">ONE-TIME ADD-ON &middot; 79 PROMPTS</div>
+      <h1>You just got the map.<br>Want the <em>79 shortcuts</em><br>that go with it?</h1>
+      <p class="sub">The R.O.C.K.S. Prompt Vault hands you a done-for-you prompt for almost everything in the guide you just bought &mdash; so you're not staring at a blank chat window trying to remember the framework.</p>
+
+      <div class="rocks-strip">
+        <div class="rocks-tile"><div class="letter">R</div><div class="word">Role</div></div>
+        <div class="rocks-tile"><div class="letter">O</div><div class="word">Objective</div></div>
+        <div class="rocks-tile"><div class="letter">C</div><div class="word">Context</div></div>
+        <div class="rocks-tile"><div class="letter">K</div><div class="word">Konstraints</div></div>
+        <div class="rocks-tile"><div class="letter">S</div><div class="word">Shape</div></div>
+      </div>
+
+      <a href="#offer" class="btn">See What's Inside &rarr;</a>
+    </div>
+  </div>
+
+  <!-- HONEST OPENER -->
+  <section class="section-white">
+    <div class="wrap honest">
+      <div class="eyebrow">Straight Talk First</div>
+      <h2 class="section-title">You don't need this.</h2>
+      <div class="goldrule"></div>
+      <p class="lead">Quick and honest: everything in <em>How Claude Can Help You Make Money Online</em> works completely on its own. Every chapter already gave you one example prompt for the R.O.C.K.S. framework &mdash; enough to build your own from there if you'd rather.</p>
+      <p class="lead">This is the rest of them. 79 in total, one for nearly every task the guide described, already built so you don't have to build it yourself mid-job. If you'd rather write your own, close this page with a clear conscience &mdash; your guide is on its way regardless.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S INSIDE -->
+  <section class="section-cream" id="offer">
+    <div class="wrap">
+      <div class="eyebrow">What's Inside</div>
+      <h2 class="section-title">79 ready-to-paste prompts, 12 categories.</h2>
+      <div class="goldrule"></div>
+      <p class="lead">Organised into the same income paths as the guide, plus two sections most guides skip entirely: finding &amp; pitching clients, and pricing, QC &amp; business ops.</p>
+
+      <div class="cat-grid">
+        <div class="cat-card"><div class="num">01</div><div class="name">Freelance Writing &amp; Editing</div><div class="count">8 prompts</div></div>
+        <div class="cat-card"><div class="num">02</div><div class="name">Data Entry, Cleanup &amp; Spreadsheets</div><div class="count">8 prompts</div></div>
+        <div class="cat-card"><div class="num">03</div><div class="name">Design-Adjacent Services</div><div class="count">7 prompts</div></div>
+        <div class="cat-card"><div class="num">04</div><div class="name">R&eacute;sum&eacute;s, Cover Letters &amp; LinkedIn</div><div class="count">7 prompts</div></div>
+        <div class="cat-card"><div class="num">05</div><div class="name">SEO Blog Content &amp; Niche Websites</div><div class="count">6 prompts</div></div>
+        <div class="cat-card"><div class="num">06</div><div class="name">Etsy, Print-on-Demand &amp; Listings</div><div class="count">6 prompts</div></div>
+        <div class="cat-card"><div class="num">07</div><div class="name">Social Media &amp; Newsletter Management</div><div class="count">7 prompts</div></div>
+        <div class="cat-card"><div class="num">08</div><div class="name">Tutoring, Study Guides &amp; Course Materials</div><div class="count">6 prompts</div></div>
+        <div class="cat-card"><div class="num">09</div><div class="name">Small Coding, Automation &amp; Fix-It Gigs</div><div class="count">6 prompts</div></div>
+        <div class="cat-card"><div class="num">10</div><div class="name">Selling Your Own Digital Products</div><div class="count">6 prompts</div></div>
+        <div class="cat-card"><div class="num">11</div><div class="name">Finding &amp; Pitching Clients</div><div class="count">6 prompts</div></div>
+        <div class="cat-card"><div class="num">12</div><div class="name">Pricing, QC &amp; Business Ops</div><div class="count">6 prompts</div></div>
+      </div>
+      <div class="total-line">Total: 79 prompts. Not &ldquo;100+&rdquo; &mdash; we counted.</div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section-white">
+    <div class="wrap">
+      <div class="eyebrow">Is This You?</div>
+      <h2 class="section-title">Take the side that's actually true for you.</h2>
+      <div class="goldrule"></div>
+      <div class="split">
+        <div class="split-card yes">
+          <h3>Grab it if&hellip;</h3>
+          <ul>
+            <li>You picked a path from the guide and want to start today, not after a week of practising prompts.</li>
+            <li>You're juggling more than one client or income path and want consistency without rebuilding a prompt from scratch each time.</li>
+            <li>You'd rather adapt a strong starting prompt than write one cold &mdash; most people would.</li>
+          </ul>
+        </div>
+        <div class="split-card no">
+          <h3>Skip it if&hellip;</h3>
+          <ul>
+            <li>You've already built your own prompt library, or you enjoy writing them from scratch. Genuinely &mdash; save your $27.</li>
+            <li>You've only picked one income path and you're happy with the single example prompt already in that chapter.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section class="section-cream">
+    <div class="wrap">
+      <div class="price-block">
+        <div class="ring ring1"></div>
+        <div class="price-block-inner">
+          <div class="badge-refund">7-Day Refund &middot; No Questions</div>
+          <h2 style="color:#fff;">Add The R.O.C.K.S. Prompt Vault</h2>
+          <div class="amount">$27</div>
+          <div class="amount-note">one-time &middot; added to this order &middot; instant download</div>
+          <a href="https://warriorplus.com/o2/buy/c3hkyk/jsklz8/yyx59l" class="btn">YES &mdash; Add The Prompt Vault For $27</a>
+          <a href="https://warriorplus.com/o/nothanks/jsklz8" class="decline">No thanks, just send me my guide</a>
+          <p class="no-timer-note">No countdown timer here, on purpose. This isn't a "today only" price you'll never see again &mdash; it's simply $27 as an add-on to an existing order. Take your time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-white">
+    <div class="wrap">
+      <div class="eyebrow">Before You Decide</div>
+      <h2 class="section-title">Quick questions</h2>
+      <div class="goldrule"></div>
+
+      <details>
+        <summary>Do I need this to use the guide?</summary>
+        <p>No. The guide works completely on its own. This just saves you the time of writing your own prompts for the other tasks in each chapter.</p>
+      </details>
+      <details>
+        <summary>Is this AI-generated filler?</summary>
+        <p>The prompts were drafted with Claude and edited by a human before anything went in here &mdash; same as everything else sold on this site. If you want the longer version of how we feel about that, it's in Chapter 16 of the guide you just bought.</p>
+      </details>
+      <details>
+        <summary>What format do I get it in?</summary>
+        <p>One 28-page PDF, delivered instantly alongside your guide.</p>
+      </details>
+      <details>
+        <summary>What if it's not useful to me?</summary>
+        <p>You've got 7 days to ask for a full refund, no questions asked. Just reply to your receipt email.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- PS -->
+  <section class="section-cream">
+    <div class="wrap">
+      <div class="ps">
+        <div class="wplus_spdisclaimer"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    How Claude Can Help You Make Money Online &middot; The R.O.C.K.S. Prompt Vault is an optional one-time add-on &middot; 7-day refund policy applies
+  </footer>
+
+  <script type="text/javascript" src="https://warriorplus.com/o2/js/jsklz8" defer></script>
+</body>
+</html>
